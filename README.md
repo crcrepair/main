@@ -3,7 +3,7 @@
 A landing page (`index.html`, with the logo in `assets/`) with a quote request form that collects
 **name, phone, email, device and notes**.
 
-## Standalone page setup (2 values to fill in)
+## Standalone page setup (3 values to fill in)
 
 Open `index.html` and edit `window.LP_CONFIG` near the top:
 
@@ -11,6 +11,7 @@ Open `index.html` and edit `window.LP_CONFIG` near the top:
 |---|---|
 | `FORM_ENDPOINT` | Where submissions go. Easiest option: create a free form at [formspree.io](https://formspree.io), set it to email you, and paste its URL (e.g. `https://formspree.io/f/abcd1234`). |
 | `FB_PIXEL_ID` | Your Meta Pixel ID from Events Manager. The page fires `PageView` on load and `Lead` on a successful submission, so you can optimise ads for leads. |
+| `GTM_ID` | Your Google Tag Manager container ID (`GTM-…`), for Google Analytics tracking. |
 
 Until `FORM_ENDPOINT` is set, the form shows a "not connected yet" message instead of sending.
 
@@ -60,9 +61,15 @@ Paste `wordpress/landing-page.css` into **Appearance → Customize → Additiona
    template if your theme has one, so the ad page has no menus to distract visitors.
 6. Optional: if you use Yoast or Rank Math, set this page to **noindex** so the ad page stays out of Google.
 
-The last block on the page (Custom HTML) sends a Facebook **Lead** event each time the form
-is sent. It needs the Meta Pixel already installed on the site (e.g. the "Meta Pixel for
+The last block on the page (Custom HTML) does the tracking: Google Tag Manager events (see
+below) and a Facebook **Lead** event each time the form is sent. It needs the Meta Pixel already installed on the site (e.g. the "Meta Pixel for
 WordPress" plugin).
 
 The hidden `utm_*` and `fbclid` form fields pick up the values from your ad link
 automatically, so each email shows which campaign/ad the enquiry came from.
+
+## Google Analytics tracking
+
+Both versions push two events to Google Tag Manager: `quote_button_click` (button clicked)
+and `generate_lead` (enquiry actually sent), each with the chosen `device`.
+Step-by-step setup for Tag Manager and GA4: [`docs/google-analytics-setup.md`](docs/google-analytics-setup.md).

@@ -87,14 +87,38 @@
 
 <!-- wp:html -->
 <script>
-  /* Meta Pixel "Lead" event when the enquiry form is sent. Needs the Meta Pixel installed on the site. */
-  document.addEventListener('wpcf7mailsent', function (event) {
-    if (!event.target.querySelector('.crc-lead-form') || !window.fbq) return;
-    var device = '';
-    event.detail.inputs.forEach(function (input) {
-      if (input.name === 'your-device') device = input.value;
+  /*
+    Tracking for the quote form.
+    - Google Tag Manager / GA4: pushes "quote_button_click" when the button is clicked
+      and "generate_lead" when the enquiry is sent successfully (see docs/google-analytics-setup.md).
+    - Meta Pixel: "Lead" when the enquiry is sent. Needs the Meta Pixel installed on the site.
+  */
+  window.dataLayer = window.dataLayer || [];
+
+  function crcDevice(form) {
+    var select = form && form.querySelector('[name="your-device"]');
+    return select ? select.value : '';
+  }
+
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest && event.target.closest('.crc-lead-form input[type="submit"]');
+    if (!button) return;
+    window.dataLayer.push({
+      event: 'quote_button_click',
+      form_name: 'facebook_ads_quote',
+      device: crcDevice(button.form)
     });
-    fbq('track', 'Lead', { content_name: device });
+  }, true);
+
+  document.addEventListener('wpcf7mailsent', function (event) {
+    if (!event.target.querySelector('.crc-lead-form')) return;
+    var device = crcDevice(event.target);
+    window.dataLayer.push({
+      event: 'generate_lead',
+      form_name: 'facebook_ads_quote',
+      device: device
+    });
+    if (window.fbq) fbq('track', 'Lead', { content_name: device });
   }, false);
 </script>
 <!-- /wp:html --></div>

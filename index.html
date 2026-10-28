@@ -11,12 +11,27 @@
     SETUP (see README.md):
     1. FORM_ENDPOINT – where submissions are sent (e.g. https://formspree.io/f/xxxxxxx)
     2. FB_PIXEL_ID   – your Meta Pixel ID, so Facebook can track "Lead" conversions
+    3. GTM_ID        – your Google Tag Manager container ID (GTM-XXXXXXX), for Google Analytics
   -->
   <script>
     window.LP_CONFIG = {
       FORM_ENDPOINT: "https://formspree.io/f/YOUR_FORM_ID",
-      FB_PIXEL_ID: "YOUR_PIXEL_ID"
+      FB_PIXEL_ID: "YOUR_PIXEL_ID",
+      GTM_ID: "YOUR_GTM_ID"
     };
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    (function (id) {
+      if (!id || id.indexOf("YOUR_") === 0) return;
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',id);
+    })(window.LP_CONFIG.GTM_ID);
   </script>
 
   <!-- Meta Pixel -->
@@ -322,6 +337,15 @@
         formError.style.display = "block";
       }
 
+      // Google Tag Manager: every click on the button (including ones that fail validation)
+      btn.addEventListener("click", function () {
+        window.dataLayer.push({
+          event: "quote_button_click",
+          form_name: "facebook_ads_quote",
+          device: form.elements.device.value
+        });
+      });
+
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         formError.style.display = "none";
@@ -354,6 +378,12 @@
         fetch(endpoint, { method: "POST", body: data, headers: { "Accept": "application/json" } })
           .then(function (res) {
             if (!res.ok) throw new Error("Bad response " + res.status);
+            // Google Tag Manager: enquiry actually sent – count this one as the lead
+            window.dataLayer.push({
+              event: "generate_lead",
+              form_name: "facebook_ads_quote",
+              device: data.get("device")
+            });
             if (window.fbq) fbq("track", "Lead", { content_name: data.get("device") });
             showThanks();
           })

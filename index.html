@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CRC Repair – Get a Free Repair Quote</title>
+  <title>CrC Repair – Get a Free Repair Quote</title>
   <meta name="description" content="Tell us what's wrong with your device and we'll get back to you with a quote.">
   <meta name="robots" content="noindex">
 
@@ -37,11 +37,13 @@
     :root {
       --bg: #f4f6fb;
       --card: #ffffff;
-      --text: #14182b;
-      --muted: #5b6275;
+      --text: #2b2d30;
+      --muted: #5f6266;
       --border: #d9deea;
-      --brand: #1f5eff;
-      --brand-dark: #1747c4;
+      --brand: #3576b5;       /* CrC Repair blue, darkened slightly for text contrast */
+      --brand-logo: #4b8ecc;  /* exact logo blue */
+      --brand-dark: #275d93;
+      --grey: #4c4e50;        /* logo dark grey */
       --accent: #0fb37a;
       --error: #d13a3a;
       --radius: 14px;
@@ -56,18 +58,24 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    .topbar {
+      background: #fff;
+      border-bottom: 3px solid var(--brand-logo);
+      padding: 14px 16px;
+    }
+    .topbar img { display: block; height: auto; width: 220px; max-width: 70vw; }
+    @media (min-width: 880px) { .topbar img { width: 280px; } }
+
     .hero {
-      background: linear-gradient(135deg, #0e1a44 0%, #1f5eff 100%) top / 100% 70% no-repeat, var(--bg);
+      background: linear-gradient(135deg, #1d4a78 0%, var(--brand-logo) 100%) top / 100% 70% no-repeat, var(--bg);
       color: #fff;
-      padding: 28px 16px 48px;
+      padding: 8px 16px 48px;
     }
     .wrap { max-width: 1040px; margin: 0 auto; }
-    .brand { font-weight: 800; font-size: 1.25rem; letter-spacing: .02em; }
-    .brand span { color: #8fb0ff; }
 
     .hero-inner { display: grid; grid-template-columns: 1fr; gap: 24px; }
     @media (min-width: 880px) {
-      .hero { background-size: 100% 380px, auto; }
+      .hero { background-size: 100% 330px, auto; }
       .hero-inner { grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: start; }
     }
 
@@ -76,7 +84,7 @@
       line-height: 1.15;
       margin: 28px 0 12px;
     }
-    .pitch p.lead { font-size: 1.1rem; color: #d6e0ff; margin: 0 0 20px; max-width: 34em; }
+    .pitch p.lead { font-size: 1.1rem; color: #e3eefa; margin: 0 0 20px; max-width: 34em; }
     .ticks { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 10px; }
     .ticks li { display: flex; gap: 10px; align-items: flex-start; }
     .ticks li::before {
@@ -89,7 +97,7 @@
     .card {
       background: var(--card);
       border-radius: var(--radius);
-      box-shadow: 0 18px 50px rgba(14, 26, 68, .18);
+      box-shadow: 0 18px 50px rgba(29, 74, 120, .18);
       padding: 24px 20px;
     }
     .card { color: var(--text); }
@@ -117,7 +125,7 @@
     input:focus, select:focus, textarea:focus {
       outline: none;
       border-color: var(--brand);
-      box-shadow: 0 0 0 3px rgba(31, 94, 255, .18);
+      box-shadow: 0 0 0 3px rgba(75, 142, 204, .25);
     }
     .field.invalid input, .field.invalid select { border-color: var(--error); }
     .err { color: var(--error); font-size: .85rem; margin-top: 4px; display: none; }
@@ -168,7 +176,7 @@
     .steps .n {
       display: inline-flex; width: 32px; height: 32px; border-radius: 50%;
       align-items: center; justify-content: center;
-      background: rgba(31, 94, 255, .1); color: var(--brand); font-weight: 800; margin-bottom: 8px;
+      background: rgba(75, 142, 204, .15); color: var(--brand); font-weight: 800; margin-bottom: 8px;
     }
     .steps h3 { margin: 0 0 4px; font-size: 1.05rem; }
     .steps p { margin: 0; color: var(--muted); }
@@ -178,10 +186,15 @@
 </head>
 <body>
 
+  <div class="topbar">
+    <div class="wrap">
+      <img src="assets/crc-repair-logo.webp" width="800" height="187" alt="CrC Repair – Authorised Repair Specialist">
+    </div>
+  </div>
+
   <header class="hero">
     <div class="wrap hero-inner">
       <div class="pitch">
-        <div class="brand">CRC<span>Repair</span></div>
         <h1>Broken device? Get a free repair quote.</h1>
         <p class="lead">Tell us what's wrong and we'll get back to you with a price and the next steps.</p>
         <ul class="ticks">
@@ -267,7 +280,7 @@
     </ol>
   </section>
 
-  <footer>&copy; <span id="year"></span> CRC Repair &middot; crcrepair.co.uk</footer>
+  <footer>&copy; <span id="year"></span> CrC Repair &middot; crcrepair.co.uk</footer>
 
   <script>
     (function () {

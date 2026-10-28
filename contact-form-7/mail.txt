@@ -1,0 +1,34 @@
+=== Contact Form 7 → "Mail" tab ===
+
+To:
+support@crcrepair.co.uk
+
+From:
+[_site_title] <wordpress@crcrepair.co.uk>
+
+Subject:
+Facebook Ads enquire
+
+Additional headers:
+Reply-To: [your-email]
+
+Message body:
+New enquiry from the Facebook Ads landing page
+
+Name:   [your-name]
+Phone:  [your-tel]
+Email:  [your-email]
+Device: [your-device]
+
+Problem / notes:
+[your-notes]
+
+--
+Ad tracking
+Source:   [utm_source]
+Medium:   [utm_medium]
+Campaign: [utm_campaign]
+Ad:       [utm_content]
+fbclid:   [fbclid]
+
+Sent from [_url] on [_date] at [_time]

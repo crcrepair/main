@@ -1,0 +1,35 @@
+<div class="crc-lead-form">
+<div class="field">
+<label for="your-name">Name</label>
+[text* your-name id:your-name autocomplete:name]
+</div>
+
+<div class="field">
+<label for="your-tel">Phone</label>
+[tel* your-tel id:your-tel autocomplete:tel placeholder "07..."]
+</div>
+
+<div class="field">
+<label for="your-email">Email</label>
+[email* your-email id:your-email autocomplete:email]
+</div>
+
+<div class="field">
+<label for="your-device">Device</label>
+[select* your-device id:your-device first_as_label "Select your device" "iPhone" "Samsung / Android phone" "iPad / Tablet" "MacBook / Laptop" "Desktop PC / iMac" "Games console" "Smartwatch" "Other"]
+</div>
+
+<div class="field">
+<label for="your-notes">What's the problem? <span class="opt">(optional)</span></label>
+[textarea your-notes id:your-notes x5 placeholder "e.g. iPhone 13, cracked screen, touch still works"]
+</div>
+
+[hidden utm_source default:get]
+[hidden utm_medium default:get]
+[hidden utm_campaign default:get]
+[hidden utm_content default:get]
+[hidden fbclid default:get]
+
+[submit "Get my free quote"]
+<p class="privacy">We'll only use your details to respond to your enquiry.</p>
+</div>

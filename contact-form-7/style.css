@@ -1,0 +1,49 @@
+/*
+  CrC Repair – styles for the Contact Form 7 lead form.
+  Add via Appearance → Customize → Additional CSS (or your theme's custom CSS box).
+  Everything is scoped to .crc-lead-form so it won't affect other forms on the site.
+*/
+.crc-lead-form { --crc-brand: #3576b5; --crc-brand-dark: #275d93; --crc-border: #d9deea; --crc-muted: #5f6266; --crc-error: #d13a3a; }
+.crc-lead-form .field { margin-bottom: 16px; }
+.crc-lead-form label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: 6px; }
+.crc-lead-form label .opt { font-weight: 400; color: var(--crc-muted); }
+.crc-lead-form input[type="text"],
+.crc-lead-form input[type="tel"],
+.crc-lead-form input[type="email"],
+.crc-lead-form select,
+.crc-lead-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 16px; /* prevents iOS zoom on focus */
+  background: #fff;
+  border: 1.5px solid var(--crc-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.crc-lead-form textarea { min-height: 110px; resize: vertical; }
+.crc-lead-form input:focus,
+.crc-lead-form select:focus,
+.crc-lead-form textarea:focus {
+  outline: none;
+  border-color: var(--crc-brand);
+  box-shadow: 0 0 0 3px rgba(75, 142, 204, .25);
+}
+.crc-lead-form .wpcf7-not-valid { border-color: var(--crc-error) !important; }
+.crc-lead-form .wpcf7-not-valid-tip { color: var(--crc-error); font-size: .85rem; margin-top: 4px; }
+.crc-lead-form input[type="submit"] {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  background: var(--crc-brand);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 15px 18px;
+  cursor: pointer;
+}
+.crc-lead-form input[type="submit"]:hover { background: var(--crc-brand-dark); }
+.crc-lead-form .wpcf7-spinner { display: block; margin: 10px auto 0; }
+.crc-lead-form .privacy { font-size: .8rem; color: var(--crc-muted); margin: 12px 0 0; text-align: center; }

@@ -32,3 +32,9 @@ Ad:       [utm_content]
 fbclid:   [fbclid]
 
 Sent from [_url] on [_date] at [_time]
+
+
+=== Contact Form 7 → "Messages" tab (optional) ===
+
+"Sender's message was sent successfully":
+Thanks, we've got it! We'll be in touch shortly about your repair.

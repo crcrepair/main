@@ -1,0 +1,101 @@
+<!-- wp:group {"align":"full","className":"crc-landing","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull crc-landing"><!-- wp:group {"className":"crc-topbar","layout":{"type":"default"}} -->
+<div class="wp-block-group crc-topbar"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"crc-logo"} -->
+<figure class="wp-block-image size-full crc-logo"><img src="/wp-content/uploads/crc-repair-logo.webp" alt="CrC Repair – Authorised Repair Specialist"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"crc-hero","layout":{"type":"default"}} -->
+<div class="wp-block-group crc-hero"><!-- wp:columns {"className":"crc-hero-cols"} -->
+<div class="wp-block-columns crc-hero-cols"><!-- wp:column {"className":"crc-pitch"} -->
+<div class="wp-block-column crc-pitch"><!-- wp:heading {"level":1,"className":"crc-title"} -->
+<h1 class="wp-block-heading crc-title">Broken device? Get a free repair quote.</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"crc-lead"} -->
+<p class="crc-lead">Tell us what's wrong and we'll get back to you with a price and the next steps.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"className":"crc-ticks"} -->
+<ul class="wp-block-list crc-ticks"><!-- wp:list-item -->
+<li>Phones, tablets, laptops &amp; more</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>No-obligation quote</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Takes less than a minute</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"className":"crc-card"} -->
+<div class="wp-block-column crc-card"><!-- wp:heading {"className":"crc-card-title"} -->
+<h2 class="wp-block-heading crc-card-title">Request your quote</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"crc-card-sub"} -->
+<p class="crc-card-sub">Fill in your details and we'll be in touch.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[contact-form-7 id="REPLACE_WITH_FORM_ID" title="Facebook Ads enquiry"]
+<!-- /wp:shortcode --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"crc-steps","layout":{"type":"default"}} -->
+<div class="wp-block-group crc-steps"><!-- wp:heading {"textAlign":"center","className":"crc-steps-title"} -->
+<h2 class="wp-block-heading has-text-align-center crc-steps-title">How it works</h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"className":"crc-steps-cols"} -->
+<div class="wp-block-columns crc-steps-cols"><!-- wp:column {"className":"crc-step"} -->
+<div class="wp-block-column crc-step"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Tell us the problem</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Fill in the short form above.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"className":"crc-step"} -->
+<div class="wp-block-column crc-step"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Get your quote</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We'll contact you with a price.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"className":"crc-step"} -->
+<div class="wp-block-column crc-step"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Get it fixed</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We repair your device and get it back to you.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:html -->
+<script>
+  /* Meta Pixel "Lead" event when the enquiry form is sent. Needs the Meta Pixel installed on the site. */
+  document.addEventListener('wpcf7mailsent', function (event) {
+    if (!event.target.querySelector('.crc-lead-form') || !window.fbq) return;
+    var device = '';
+    event.detail.inputs.forEach(function (input) {
+      if (input.name === 'your-device') device = input.value;
+    });
+    fbq('track', 'Lead', { content_name: device });
+  }, false);
+</script>
+<!-- /wp:html --></div>
+<!-- /wp:group -->

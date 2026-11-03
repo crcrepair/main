@@ -1,5 +1,6 @@
 """Build the PS5 Pro WooCommerce product description in the .crc-page design system."""
 import json, re, html, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 W = os.path.dirname(os.path.abspath(__file__))
 B = "https://www.crcrepair.co.uk"

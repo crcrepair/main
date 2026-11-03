@@ -36,5 +36,7 @@ Owner: Gabor (CrC Repair®, crcrepair.co.uk). British English throughout.
    image alt texts + captions, and product tags (Brand, line, "<model> series", model,
    condition, 4G/5G — colours and storage go in attributes, not tags).
 
-Open questions to keep flagging: condition tag wording (Pre-owned or Refurbished), and the
-booking link pattern `?selected=repairs/Apple/<Model>`.
+Decided by Gabor (3 Nov 2026): the condition tag is `Pre-owned`, and the booking link pattern
+`?selected=repairs/Apple/<Model-with-hyphens>` is correct (confirmed on the iPhone 16 Pro Max).
+Builders made before this still carry ❓ flags for both; the iPhone 16 Pro Max builder is the
+current reference.

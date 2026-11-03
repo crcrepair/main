@@ -8,7 +8,7 @@ O = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "output", "pr
 P = "iPhone 16 Pro Max"
 URL = "https://www.crcrepair.co.uk/store/product/phones/apple-phones/apple-iphone-16-pro-max/"
 ACCESSORIES = "https://www.crcrepair.co.uk/store/product-category/accessories/"
-BOOKING_SELECTED = "repairs/Apple/iPhone-16-Pro-Max"   # ❓ pattern from the iPhone 15 Pro link; confirm
+BOOKING_SELECTED = "repairs/Apple/iPhone-16-Pro-Max"   # confirmed by Gabor, 3 Nov 2026
 TAGLINE = "A new era of intelligence and interaction."
 
 META_TITLE = "Buy iPhone 16 Pro Max | 2-Year Warranty | CrC Repair®"
@@ -24,7 +24,7 @@ TAGS = [
     ("iPhone", "Product line. Groups every iPhone listing."),
     ("iPhone 16 series", "Model family. Links the iPhone 16e, 16, 16 Plus, 16 Pro and 16 Pro Max listings."),
     ("iPhone 16 Pro Max", "Exact model, matching how people search."),
-    ("Pre-owned", "Condition. ❓ Use your own wording (Pre-owned or Refurbished) and keep it identical on every listing."),
+    ("Pre-owned", "Condition. Confirmed wording: keep it identical on every listing."),
     ("5G", "Connectivity."),
 ]
 
@@ -219,9 +219,10 @@ SOURCES: apple.com and support.apple.com were blocked from this session's networ
   25W MagSafe with a 30W adapter) and match the iPhone 16 Pro page for shared hardware. Worth a final glance
   against support.apple.com/en-gb/121032 before publishing.
 
-QUESTIONS FOR GABOR:
-  1. Booking link value: used ?selected={BOOKING_SELECTED} (pattern from the iPhone 15 Pro). Please confirm.
-  2. Condition wording for the tag: Pre-owned or Refurbished?
+CONFIRMED BY GABOR (3 Nov 2026):
+  1. Booking link value: ?selected={BOOKING_SELECTED}
+  2. Condition tag: Pre-owned
+  3. Short description tagline: "{TAGLINE}" (kept from the old copy)
 
 INTERNAL LINKS IN THIS PAGE ({len(hrefs)}):
 {chr(10).join('  ' + h_ for h_ in hrefs)}
@@ -279,6 +280,6 @@ seo_pack(O + f"{SLUG}-seo-pack.html", "Apple iPhone 16 Pro Max", [
     "Image alt texts are written for a standard set of shots, because I didn't have the actual images. Use the rows that match your photos and delete the rest.",
     "Tags: colours and storage sizes belong in product <b>attributes</b> (variations), not tags. Keep tag names spelled exactly the same on every product.",
     "Tag archive pages (/product-tag/…) should be <b>noindex</b> in SEOPress → Titles &amp; Metas → Taxonomies.",
-    f"Short description booking link uses <code>?selected={BOOKING_SELECTED}</code>. Please confirm.",
+    f"Short description booking link uses <code>?selected={BOOKING_SELECTED}</code> (confirmed).",
 ], tags=TAGS)
 print("built")

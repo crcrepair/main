@@ -1,0 +1,11 @@
+Download these from claude.ai > Projects > Redesign web pages > Project knowledge and save them in this folder:
+
+  store-service-pages-instructions-v2.5.md   (claude/store-service-pages-instructions-v2.5.md)
+  store-information.md
+  progress-log.md                            (claude/progress-log.md)
+  delivered-pages-prose-corpus.md            (claude/delivered-pages-prose-corpus.md)
+  page-kit.md                                (claude/page-kit.md)
+  crc-project-dashboard.html                 (claude/crc-project-dashboard.html)
+
+Optional: the delivered store pages (<town>-<service>-gutenberg.html / -schema.html), if you
+want Claude Code to edit them. Drop the "claude/" prefix from the names when saving.

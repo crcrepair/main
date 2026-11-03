@@ -1,0 +1,615 @@
+<!--
+================================================================
+PAGE:              WooCommerce product description — PlayStation 5 Pro (PS5 Pro)
+WHERE IT GOES:     Product > Description (the long description, NOT the short description).
+                   Block editor: paste into a Code editor view (Ctrl+Shift+Alt+M) or a Custom HTML block.
+                   Classic editor: paste into the TEXT tab only and never switch to Visual.
+                   The theme's product title is the H1, so this content starts at H2.
+SUGGESTED META (SEOPress):
+  Title:        Buy PS5 Pro 2TB with 2-Year Warranty | CrC Repair®   (50 chars, script-counted)
+  Description:  Buy a PlayStation 5 Pro with 2TB SSD, PSSR upscaling and faster ray tracing. 60-point checked, 2-year warranty and a free Device MOT every six months.   (150 chars, script-counted)
+
+Design: scoped .crc-page CSS block copied verbatim from the delivered pages (accent #4180d5, Montserrat),
+followed by a small SECOND style block (.storepills) for the 10-store capsule buttons. Keep both.
+Store block: 10 capsules (alphabetical) above the FAQ. Each one calls that store's number from store-information.md.
+No Elfsight widgets and no [Repair_Search_Box]: the product page already has its own add-to-cart area.
+No schema in this file: WooCommerce/SEOPress output the Product schema.
+
+SPEC CHANGES FROM THE DRAFT (checked against Sony's figures):
+  - Ray tracing "2x to 4x" changed to "2 to 3 times" (Sony's figure).
+  - "approx 33.5 TFLOPS" removed (an unofficial dual-issue number). Now "67% more compute units" (Sony's figure).
+  - "RDNA 3-based" removed (not stated by Sony). Now "AMD Radeon-based".
+  - "8K resolution in the future" (PSSR) removed. 8K output is listed as a spec only.
+  - Added the missing points: no disc drive and no vertical stand (both sold separately).
+  - Removed the stray Gemini <span class="math-inline"> markup.
+
+QUESTIONS FOR GABOR:
+  1. Is this listing pre-owned/refurbished or new? The two-year warranty rule applies to pre-owned consoles sold.
+  2. What's in the box for this listing (DualSense, cables, stand, disc drive)? The copy says the DualSense
+     is included, as your draft did.
+  3. Is there a page for the free Device MOT or the 15% accessory offer that should be linked?
+
+INTERNAL LINKS IN THIS PAGE (16):
+  https://www.crcrepair.co.uk/terms/
+  https://www.crcrepair.co.uk/store/
+  https://www.crcrepair.co.uk/playstation-repair/
+  https://www.crcrepair.co.uk/we-buy/
+  https://www.crcrepair.co.uk/store-locator/
+  https://www.crcrepair.co.uk/book-a-repair/
+  tel:01202776491
+  tel:01206573500
+  tel:02071015461
+  tel:01412219633
+  tel:01603853209
+  tel:01708202461
+  tel:07988300056
+  tel:02073455323
+  tel:02038415717
+  tel:01902953971
+================================================================
+-->
+
+<!-- wp:html -->
+<style>
+  :root{
+    --ink:#101418;
+    --ink-soft:#3d4650;
+    --white:#ffffff;
+    --accent:#4180d5;
+    --accent-dark:#2c5da3;
+    --steel:#1b2530;
+    --line:#dfe4e9;
+    --amber:#f0a500;
+    --radius:14px;
+  }
+  .crc-page{font-family:'Montserrat',system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.65;font-size:16.5px}
+  .crc-page h1,.crc-page h2,.crc-page h3{font-family:'Montserrat',system-ui,sans-serif;line-height:1.15;font-weight:800;letter-spacing:-.01em;margin:0}
+  .crc-page p{margin:0}
+  .crc-page a{color:var(--accent)}
+  .crc-page a:hover{color:var(--accent-dark)}
+  .crc-page [id]{scroll-margin-top:24px}
+  .crc-page .wp-block-group{margin:0}
+
+  .crc-page .titlebox{padding:14px 0 22px}
+  .crc-page .titlebox h1{font-size:clamp(21px,2.8vw,30px);font-weight:600}
+  .crc-page .titlebox h1::after{content:"";display:block;width:64px;height:6px;background:var(--accent);border-radius:3px;margin-top:14px}
+
+  .crc-page .jumpnav{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 2px 10px rgba(16,20,24,.05);padding:14px 18px;display:flex;flex-wrap:wrap;gap:6px}
+  .crc-page .jumpnav a{text-decoration:none;font-size:13.5px;font-weight:600;color:var(--ink-soft);padding:7px 13px;border-radius:999px;border:1px solid var(--line)}
+  .crc-page .jumpnav a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  .crc-page .block{padding:28px 0}
+  .crc-page .block h2{font-size:clamp(18px,2.3vw,25px);margin-bottom:22px;text-align:center;color:var(--ink)}
+  .crc-page .block h2::after{content:"";display:block;width:64px;height:6px;background:var(--accent);border-radius:3px;margin:12px auto 0}
+  .crc-page .lede p{margin-bottom:16px;color:var(--ink-soft)}
+  .crc-page .lede p:last-child{margin-bottom:0}
+
+  .crc-page .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 2px 10px rgba(16,20,24,.05)}
+  .crc-page .grid{display:grid;gap:20px}
+  .crc-page .grid > *{margin:0}
+  .crc-page .grid.c2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .crc-page .grid.c3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .crc-page .grid.c5{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+
+  .crc-page .rcard h3{font-size:16px;margin-bottom:14px;padding-bottom:12px;border-bottom:3px solid var(--accent)}
+  .crc-page .rcard p{color:var(--ink-soft);font-size:15px;margin-bottom:12px}
+  .crc-page .rcard p:last-child{margin-bottom:0}
+  .crc-page .sectionintro{margin-bottom:22px;color:var(--ink-soft)}
+
+  .crc-page .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .crc-page .chips span{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--accent);padding:9px 15px;border-radius:10px;font-weight:600;font-size:14px;box-shadow:0 1px 4px rgba(16,20,24,.05);color:var(--ink);display:block}
+  .crc-page .chips span b{display:block;font-weight:700;font-size:13px;color:var(--accent-dark)}
+
+  .crc-page .note.card{border-top:6px solid var(--amber)}
+  .crc-page .note.card p{color:var(--ink-soft);margin-bottom:14px}
+  .crc-page .note.card p:last-child{margin-bottom:0}
+
+  .crc-page .warranty.card{text-align:center;border-top:6px solid var(--accent)}
+  .crc-page .warranty.card p{color:var(--ink-soft)}
+  .crc-page .warranty.card .big{font-weight:900;font-size:24px;color:var(--accent);margin-bottom:10px}
+  .crc-page .warranty.card h3{font-size:16px;margin-bottom:10px}
+
+  .crc-page .why-tile{background:var(--steel);color:#fff;border-radius:12px;padding:24px 22px}
+  .crc-page .why-tile h3{font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:10px;color:#fff}
+  .crc-page .why-tile h3::before{content:"✔";color:var(--accent);background:#fff;width:24px;height:24px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+  .crc-page .why-tile p{color:#c8d2dc;font-size:14.5px}
+
+  .crc-page .storegrid a{display:block;text-decoration:none}
+  .crc-page .storegrid h3{background:var(--white);border:1px solid var(--line);border-bottom:5px solid var(--accent);border-radius:12px;padding:18px;font-size:15.5px;text-align:center;transition:.15s;color:var(--ink)}
+  .crc-page .storegrid a:hover h3{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .crc-page .stores-after{margin-top:20px;text-align:center;color:var(--ink-soft);font-weight:500}
+
+  .crc-page .gallery figure{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 2px 10px rgba(16,20,24,.05);overflow:hidden;margin:0}
+  .crc-page .gallery img{display:block;width:100%;height:auto}
+  .crc-page .imgplaceholder{background:var(--white);border:2px dashed var(--line);border-radius:var(--radius);padding:34px 22px;text-align:center;color:var(--ink-soft);font-size:14px;font-weight:600}
+
+  .crc-page .cta-banner{background:var(--accent);color:#fff;border-radius:var(--radius);padding:36px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+  .crc-page .cta-banner h2{color:#fff;text-align:left;margin:0}
+  .crc-page .cta-banner h2::after{content:"";display:block;width:64px;height:6px;background:#fff;border-radius:3px;margin:12px 0 0}
+  .crc-page .cta-banner .txt{flex:1 1 380px}
+  .crc-page .cta-banner p{color:#eaf1fb;margin-top:14px}
+  .crc-page .btn{display:inline-block;padding:13px 26px;border-radius:10px;font-weight:700;text-decoration:none;font-size:15px}
+  .crc-page .btn.light{background:#fff;color:var(--accent)}
+  .crc-page .btn.light:hover{background:#dbe7f7;color:var(--accent-dark)}
+  .crc-page .btn.ghost{border:2px solid rgba(255,255,255,.7);color:#fff}
+  .crc-page .btn.ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+  .crc-page .cta-banner .actions{display:flex;flex-wrap:wrap;gap:12px}
+  @media (max-width:720px){
+    .crc-page .cta-banner{justify-content:center;text-align:center}
+    .crc-page .cta-banner h2{text-align:center}
+    .crc-page .cta-banner h2::after{margin:12px auto 0}
+    .crc-page .cta-banner .actions{width:100%;justify-content:center}
+  }
+
+  .crc-page .faq details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .crc-page .faq summary{cursor:pointer;padding:18px 22px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .crc-page .faq summary::-webkit-details-marker{display:none}
+  .crc-page .faq summary h3{font-size:15px;font-weight:700}
+  .crc-page .faq details[open] summary{border-bottom:1px solid var(--line)}
+  .crc-page .faq summary::after{content:"+";font-weight:900;font-size:24px;color:var(--accent);flex-shrink:0}
+  .crc-page .faq details[open] summary::after{content:"–"}
+  .crc-page .faq .a{padding:16px 22px 20px;color:var(--ink-soft)}
+
+  .crc-page :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<style>
+  .crc-page .jumpnav a{display:inline-flex;align-items:center;gap:7px}
+  .crc-page .jumpnav svg{width:16px;height:16px;flex-shrink:0;color:var(--accent)}
+  .crc-page .jumpnav a:hover svg{color:#fff}
+  .crc-page .storepills{justify-items:stretch}
+  .crc-page .storepills a{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;background:var(--white);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:14px 18px;box-shadow:0 2px 10px rgba(16,20,24,.05);transition:background .15s,border-color .15s,color .15s}
+  .crc-page .storepills a strong{font-size:15px;font-weight:700;line-height:1.3}
+  .crc-page .storepills a:hover,.crc-page .storepills a:focus-visible{background:var(--accent);border-color:var(--accent);color:#fff}
+  @media (max-width:560px){
+    .crc-page .grid.c5.storepills{grid-template-columns:repeat(2,1fr);gap:10px}
+    .crc-page .storepills a{padding:10px 12px}
+    .crc-page .storepills a strong{font-size:14px}
+  }
+  .crc-page h2[class*='crc-ico-']::before{content:"";display:inline-block;width:.95em;height:.95em;margin-right:10px;vertical-align:-.12em;background-color:var(--accent);-webkit-mask:var(--ico) no-repeat center/contain;mask:var(--ico) no-repeat center/contain}
+  .crc-page .cta-banner h2[class*='crc-ico-']::before{background-color:#fff}
+  .crc-page h2.crc-ico-info{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4M12 8h.01'/%3E%3C/svg%3E")}
+  .crc-page h2.crc-ico-cpu{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='4' width='16' height='16' rx='2'/%3E%3Crect x='9' y='9' width='6' height='6'/%3E%3Cpath d='M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3'/%3E%3C/svg%3E")}
+  .crc-page h2.crc-ico-star{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E")}
+  .crc-page h2.crc-ico-shield{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E")}
+  .crc-page h2.crc-ico-wrench{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z'/%3E%3C/svg%3E")}
+  .crc-page h2.crc-ico-phone{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='2' width='14' height='20' rx='2'/%3E%3Cpath d='M12 18h.01'/%3E%3C/svg%3E")}
+  .crc-page h2.crc-ico-cash{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='6' width='20' height='12' rx='2'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3Cpath d='M6 12h.01M18 12h.01'/%3E%3C/svg%3E")}
+  .crc-page h2.crc-ico-gamepad{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='6' width='20' height='12' rx='2'/%3E%3Cpath d='M6 12h4M8 10v4M15 13h.01M18 11h.01'/%3E%3C/svg%3E")}
+  .crc-page .cta-banner.sell{background:#eef1f5;color:var(--ink);border:1px solid var(--line)}
+  .crc-page .cta-banner.sell h2{color:var(--ink)}
+  .crc-page .cta-banner.sell h2::after{background:var(--accent)}
+  .crc-page .cta-banner.sell p{color:var(--ink-soft)}
+  .crc-page .cta-banner.sell h2[class*='crc-ico-']::before{background-color:var(--accent)}
+  .crc-page .cta-banner.sell .btn.light{background:var(--accent);color:#fff}
+  .crc-page .cta-banner.sell .btn.light:hover{background:var(--accent-dark);color:#fff}
+  .crc-page .cta-banner.sell .btn.ghost{border-color:var(--accent);color:var(--accent)}
+  .crc-page .cta-banner.sell .btn.ghost:hover{background:rgba(65,128,213,.08);color:var(--accent-dark)}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:group {"className":"crc-page"} -->
+<div class="wp-block-group crc-page">
+
+<!-- wp:html -->
+<nav class="jumpnav" aria-label="On this page">
+  <a href="#before-you-buy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Before you buy</a>
+  <a href="#specs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>Specifications</a>
+  <a href="#why-us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Why buy from us</a>
+  <a href="#warranty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Warranty</a>
+  <a href="#book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Book a repair</a>
+  <a href="#own-one"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/></svg>Already own?</a>
+</nav>
+<!-- /wp:html -->
+
+<!-- wp:group {"anchor":"overview","className":"block"} -->
+<div class="wp-block-group block" id="overview">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">PlayStation 5 Pro — Sony's most powerful console</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"card lede"} -->
+<div class="wp-block-group card lede">
+<!-- wp:paragraph -->
+<p>The <strong>PlayStation 5 Pro</strong> is the upgraded PS5, built to get more out of a 4K TV. Sony gave it a much larger graphics processor (67% more compute units than the standard PS5, and up to 45% faster rendering), memory that is 28% faster, and ray tracing that runs two to three times as fast. On top of that sits PlayStation Spectral Super Resolution (PSSR), Sony's AI-driven upscaling.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>In practice, you get sharper pictures and steadier frame rates, especially in games labelled <strong>PS5 Pro Enhanced</strong>. Many of them let you keep ray tracing switched on without giving up a smooth 60fps, so you no longer have to choose between detail and smoothness. A 2TB SSD, Wi-Fi 7 and the DualSense controller complete the package, and it plays your existing PS5 games plus over 8,500 PS4 titles.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"before-you-buy","className":"block"} -->
+<div class="wp-block-group block" id="before-you-buy">
+<!-- wp:heading {"className":"crc-ico-info"} -->
+<h2 class="wp-block-heading crc-ico-info">Before you buy — what the PS5 Pro doesn't include</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"note card"} -->
+<div class="wp-block-group note card">
+<!-- wp:paragraph -->
+<p><strong>No built-in disc drive.</strong> The PS5 Pro is a digital console. To play game discs or Blu-ray films, you need Sony's add-on Disc Drive, which is sold separately and attaches to the side of the console. If all your games are digital, you won't need it.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><strong>No vertical stand.</strong> The console sits flat as standard. Sony sells the vertical stand separately.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><strong>Your TV matters.</strong> For 120Hz modes and VRR you need a TV or monitor with HDMI 2.1. The Pro still runs games more smoothly on a 1080p TV, but most of the visual improvements are aimed at 4K screens.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"specs","className":"block"} -->
+<div class="wp-block-group block" id="specs">
+<!-- wp:heading {"className":"crc-ico-cpu"} -->
+<h2 class="wp-block-heading crc-ico-cpu">PS5 Pro technical specifications</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className": "sectionintro"} -->
+<p class="sectionintro">The key hardware at a glance:</p>
+<!-- /wp:paragraph -->
+<!-- wp:html -->
+<div class="chips">
+  <span><b>Storage</b>2TB ultra-high-speed SSD · M.2 expansion slot</span>
+  <span><b>Processor (CPU)</b>AMD Zen 2 · 8 cores / 16 threads · up to 3.85GHz</span>
+  <span><b>Graphics (GPU)</b>AMD Radeon-based · 67% more compute units than PS5</span>
+  <span><b>Memory</b>16GB GDDR6 (576GB/s) + 2GB DDR5</span>
+  <span><b>Video output</b>4K at 120Hz · 8K output · VRR (HDMI 2.1)</span>
+  <span><b>Upscaling</b>PlayStation Spectral Super Resolution (PSSR)</span>
+  <span><b>Ray tracing</b>2 to 3 times faster than PS5</span>
+  <span><b>Audio</b>Tempest 3D AudioTech</span>
+  <span><b>Wireless</b>Wi-Fi 7 · Bluetooth 5.1</span>
+  <span><b>Ports</b>HDMI 2.1 · Ethernet · USB</span>
+  <span><b>Disc drive</b>Not built in — add-on sold separately</span>
+</div>
+<!-- /wp:html -->
+<!-- wp:paragraph {"className": "stores-after"} -->
+<p class="stores-after">Figures are Sony's. Part of the 2TB SSD is reserved for system software.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"features","className":"block"} -->
+<div class="wp-block-group block" id="features">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What the PS5 Pro does better</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"grid c3"} -->
+<div class="wp-block-group grid c3">
+<!-- wp:group {"anchor":"feat-pssr","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="feat-pssr">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">PSSR AI upscaling</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>The console renders a game at a lower resolution, then uses AI to rebuild a sharp 4K image. You get close to native-4K detail without the frame-rate cost. A system setting can also improve PSSR image quality in supported games.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"feat-rt","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="feat-rt">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Faster ray tracing</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Reflections, shadows and lighting are traced two to three times faster than on the standard PS5, so more games can offer ray tracing in their high frame-rate modes.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"feat-fps","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="feat-fps">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Higher, steadier frame rates</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>PS5 Pro Enhanced games add modes built for the Pro. Compatible games can run at 60fps, or up to 120fps on a 120Hz display, often with ray tracing still enabled.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"feat-ssd","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="feat-ssd">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">2TB SSD as standard</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Twice the storage of the original PS5, with the same very fast load times. There is room for more of your library before you need to delete anything, and you can expand it later.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"feat-dualsense","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="feat-dualsense">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">DualSense controller</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Haptic feedback and adaptive triggers let you feel the game: the tension of a bowstring, the kick of a weapon, or the surface under your feet.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"feat-library","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="feat-library">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Plays your existing library</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>All your PS5 games work, along with over 8,500 PS4 titles. Tempest 3D AudioTech adds positional sound through compatible headphones and TV speakers.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"who-for","className":"block"} -->
+<div class="wp-block-group block" id="who-for">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Is the PS5 Pro right for you?</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"card lede"} -->
+<div class="wp-block-group card lede">
+<!-- wp:paragraph -->
+<p>The Pro makes most sense if you play on a 4K TV and image quality matters to you. Big open-world and action games, especially those labelled PS5 Pro Enhanced, show the clearest difference. If you were already short of storage, the 2TB drive is a genuine bonus.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>If you play on a 1080p screen, mostly play older or less demanding games, or need a disc drive anyway, a standard PS5 may be better value. Not sure which suits you? Ask in any of our stores and we'll talk you through it.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"why-us","className":"block"} -->
+<div class="wp-block-group block" id="why-us">
+<!-- wp:heading {"className":"crc-ico-star"} -->
+<h2 class="wp-block-heading crc-ico-star">Why buy your PS5 Pro from CrC Repair®</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className": "sectionintro"} -->
+<p class="sectionintro">Every device we sell meets our own standards, backed by an award-winning UK repair business.</p>
+<!-- /wp:paragraph -->
+<!-- wp:group {"className":"grid c3"} -->
+<div class="wp-block-group grid c3">
+<!-- wp:group {"anchor":"why-ps5pro-check","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-ps5pro-check">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">60-point quality check</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Every device goes through a comprehensive 60-point check before it's sold, so you get top performance and reliability.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"anchor":"why-ps5pro-sources","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-ps5pro-sources">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Verified, trusted stock</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>All devices come from verified, trusted sources. We never sell grey-market or crime-linked stock.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"anchor":"why-ps5pro-accessories","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-ps5pro-accessories">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">15% off accessories</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Get 15% off selected accessories with every device purchase.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"warranty","className":"block"} -->
+<div class="wp-block-group block" id="warranty">
+<!-- wp:heading {"className":"crc-ico-shield"} -->
+<h2 class="wp-block-heading crc-ico-shield">Two-year warranty and free Device MOT</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"grid c2"} -->
+<div class="wp-block-group grid c2">
+<!-- wp:group {"anchor":"warranty-ps5pro-console","className":"warranty card"} -->
+<div class="wp-block-group warranty card" id="warranty-ps5pro-console">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Console warranty</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className": "big"} -->
+<p class="big">Two years</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>A hassle-free two-year warranty covers your PS5 Pro from the day you buy it.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"anchor":"warranty-ps5pro-mot","className":"warranty card"} -->
+<div class="wp-block-group warranty card" id="warranty-ps5pro-mot">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Free Device MOT</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className": "big"} -->
+<p class="big">Every 6 months</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>Bring your console in for a free Device MOT every six months to keep it running smoothly.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className": "stores-after"} -->
+<p class="stores-after">Warranty cover is subject to our <a href="https://www.crcrepair.co.uk/terms/">terms and conditions</a>.<br>Looking for something else? Browse our <a href="https://www.crcrepair.co.uk/store/">pre-owned consoles and devices</a>.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"own-one","className":"block"} -->
+<div class="wp-block-group block" id="own-one">
+<!-- wp:heading {"className":"crc-ico-gamepad"} -->
+<h2 class="wp-block-heading crc-ico-gamepad">Already own a PS5 Pro?</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className": "sectionintro"} -->
+<p class="sectionintro">Whatever you need next, we can help:</p>
+<!-- /wp:paragraph -->
+<!-- wp:group {"className":"grid c3"} -->
+<div class="wp-block-group grid c3">
+<!-- wp:group {"anchor":"own-repair","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="own-repair">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">PS5 Pro repairs</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Our technicians fix HDMI port faults, the add-on disc drive, overheating and noisy fans, and DualSense stick drift. Repairs carry a one-year warranty. See our <a href="https://www.crcrepair.co.uk/playstation-repair/">PlayStation repair</a> service.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"own-sell","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="own-sell">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Sell or trade in</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Upgrading, or finished with a console? We'll make you an offer. Take cash, or put the value towards your next device. Find out <a href="https://www.crcrepair.co.uk/we-buy/">how we buy consoles</a>.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"own-store","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="own-store">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Visit a store</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Pop into your nearest CrC Repair® store for repairs, trade-ins and advice. Use our <a href="https://www.crcrepair.co.uk/store-locator/">store locator</a> to find the closest one.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"book","className":"block"} -->
+<div class="wp-block-group block" id="book">
+<!-- wp:group {"className":"grid c2"} -->
+<div class="wp-block-group grid c2">
+<!-- wp:group {"className":"cta-banner"} -->
+<div class="wp-block-group cta-banner">
+<!-- wp:group {"className":"txt"} -->
+<div class="wp-block-group txt">
+<!-- wp:heading {"className":"crc-ico-wrench"} -->
+<h2 class="wp-block-heading crc-ico-wrench">Need your PS5 Pro repaired?</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Book online for a quick estimate, or bring your console into your nearest store.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:html -->
+<div class="actions">
+  <a class="btn light" href="https://www.crcrepair.co.uk/book-a-repair/">Book a repair</a>
+  <a class="btn ghost" href="https://www.crcrepair.co.uk/store-locator/">Find a store</a>
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"anchor":"sell","className":"cta-banner sell"} -->
+<div class="wp-block-group cta-banner sell" id="sell">
+<!-- wp:group {"className":"txt"} -->
+<div class="wp-block-group txt">
+<!-- wp:heading {"className":"crc-ico-cash"} -->
+<h2 class="wp-block-heading crc-ico-cash">Would you like to sell your PS5 Pro?</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Check what we'd pay for it online, or bring it into your nearest store and walk out with cash the same day.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:html -->
+<div class="actions">
+  <a class="btn light" href="https://www.crcrepair.co.uk/we-buy/">Check our trading price</a>
+  <a class="btn ghost" href="https://www.crcrepair.co.uk/store-locator/">Get cash today</a>
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"collect","className":"block"} -->
+<div class="wp-block-group block" id="collect">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Would you like to collect today? Please contact any of our stores directly</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className": "sectionintro"} -->
+<p class="sectionintro">Call the store nearest you to check availability and arrange to collect your PS5 Pro in person. Tap a store to call it:</p>
+<!-- /wp:paragraph -->
+<!-- wp:html -->
+<div class="grid c5 storepills">
+  <a href="tel:01202776491" aria-label="Call Pocket Geek Bournemouth on 01202 776491"><strong>Bournemouth</strong></a>
+  <a href="tel:01206573500" aria-label="Call Pocket Geek Colchester on 01206 573500"><strong>Colchester</strong></a>
+  <a href="tel:02071015461" aria-label="Call Pocket Geek Farringdon on 020 7101 5461"><strong>Farringdon</strong></a>
+  <a href="tel:01412219633" aria-label="Call Pocket Geek Glasgow on 0141 221 9633"><strong>Glasgow</strong></a>
+  <a href="tel:01603853209" aria-label="Call Pocket Geek Norwich on 01603 853209"><strong>Norwich</strong></a>
+  <a href="tel:01708202461" aria-label="Call Pocket Geek Romford on 01708 202461"><strong>Romford</strong></a>
+  <a href="tel:07988300056" aria-label="Call Pocket Geek Stoke-on-Trent on 07988 300056"><strong>Stoke-on-Trent</strong></a>
+  <a href="tel:02073455323" aria-label="Call Pocket Geek Surrey Quays on 020 7345 5323"><strong>Surrey Quays</strong></a>
+  <a href="tel:02038415717" aria-label="Call Pocket Geek Whetstone on 020 3841 5717"><strong>Whetstone</strong></a>
+  <a href="tel:01902953971" aria-label="Call Pocket Geek Wolverhampton on 01902 953971"><strong>Wolverhampton</strong></a>
+</div>
+<!-- /wp:html -->
+<!-- wp:paragraph {"className": "stores-after"} -->
+<p class="stores-after">Opening hours differ from store to store, so please call before you travel. Addresses and hours are on our <a href="https://www.crcrepair.co.uk/store-locator/">store locator</a>.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"faq","className":"block faq"} -->
+<div class="wp-block-group block faq" id="faq">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">PS5 Pro — frequently asked questions</h2>
+<!-- /wp:heading -->
+<!-- wp:html -->
+<details open id="faq-ps5pro-disc">
+  <summary><h3>Does the PS5 Pro have a disc drive?</h3></summary>
+  <div class="a">No. The PS5 Pro is a digital console with no built-in drive. To play game discs or Blu-ray films you need Sony's add-on Disc Drive, which is sold separately and attaches to the side of the console. If you buy all your games digitally, you don't need it.</div>
+</details>
+<details id="faq-ps5pro-games">
+  <summary><h3>Will my PS5 and PS4 games work on the PS5 Pro?</h3></summary>
+  <div class="a">Yes. It plays PS5 games and over 8,500 PS4 games. Titles labelled PS5 Pro Enhanced get extra modes built for the Pro's hardware, and some other games can run more smoothly too, although results vary from game to game.</div>
+</details>
+<details id="faq-ps5pro-tv">
+  <summary><h3>Do I need a 4K TV for the PS5 Pro?</h3></summary>
+  <div class="a">It works with any HDMI TV, but it is designed for 4K. On a 4K TV you see the full benefit of PSSR upscaling and the extra graphics power. For 120Hz modes and variable refresh rate (VRR) you need a TV or monitor that supports HDMI 2.1. On a 1080p screen, the gains are mainly smoother frame rates.</div>
+</details>
+<details id="faq-ps5pro-storage">
+  <summary><h3>How much storage do I actually get?</h3></summary>
+  <div class="a">The console has a 2TB SSD, but part of it is reserved for system software, so the space for games is a little under 2TB. You can add more with a compatible M.2 SSD in the expansion slot or with USB external storage.</div>
+</details>
+<details id="faq-ps5pro-warranty">
+  <summary><h3>What warranty comes with a PS5 Pro from CrC Repair®?</h3></summary>
+  <div class="a">Every console we sell comes with a hassle-free two-year warranty, plus a free Device MOT every six months to keep it running smoothly.</div>
+</details>
+<details id="faq-ps5pro-tradein">
+  <summary><h3>Can I trade in my old console towards a PS5 Pro?</h3></summary>
+  <div class="a">Yes. Bring your current console into one of our stores for an offer, and take cash or put the value towards your next device. See <a href="https://www.crcrepair.co.uk/we-buy/">how we buy consoles and devices</a> for details.</div>
+</details>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->

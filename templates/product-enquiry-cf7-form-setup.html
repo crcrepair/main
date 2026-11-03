@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CF7 product enquiry form setup</title>
+<style>
+  :root{--ink:#101418;--soft:#3d4650;--accent:#4180d5;--line:#dfe4e9;--amber:#f0a500}
+  body{margin:0;background:#f6f7f9;font-family:Montserrat,system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 22px 64px}
+  h1{font-size:26px;margin:0 0 6px}
+  .sub{color:var(--soft);margin:0 0 28px}
+  h2{font-size:18px;margin:32px 0 10px;padding-bottom:8px;border-bottom:3px solid var(--accent)}
+  p,li{color:var(--soft)}
+  ol{padding-left:22px}
+  .field{margin:14px 0 4px;font-weight:700;font-size:14px;color:var(--ink)}
+  pre{background:#fff;border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;padding:14px 16px;overflow-x:auto;font-size:13.5px;line-height:1.55;margin:0;white-space:pre-wrap;word-break:break-word}
+  .note{background:#fff;border:1px solid var(--line);border-top:5px solid var(--amber);border-radius:10px;padding:14px 18px;margin:18px 0}
+  .note p{margin:0}
+  code{background:#eef1f5;border-radius:5px;padding:1px 6px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Contact Form 7: product enquiry form</h1>
+<p class="sub">For the blue "Any questions?" box beside the overview on the iPhone 15 Pro product description. Create the form once and reuse it on every product page. Each email names the product automatically.</p>
+
+<h2>1. Create the form</h2>
+<ol>
+  <li>In WordPress go to <strong>Contact → Add New</strong> and name it <code>Product enquiry</code>.</li>
+  <li>Fill in the Form, Mail and Messages tabs below, then <strong>Save</strong>.</li>
+  <li>Copy the shortcode CF7 shows at the top, e.g. <code>[contact-form-7 id="1a2b3c4" title="Product enquiry"]</code>.</li>
+  <li>In the product description, replace <code>[contact-form-7 id="7e17e9a" title="Product enquiry"]</code> with your shortcode. It sits in its own Shortcode block inside the blue box.</li>
+</ol>
+
+<h2>2. Form tab</h2>
+<p>Paste this exactly. Each label and its field are on the same line on purpose: if they're on separate lines, CF7 adds a line break that leaves an empty row under each label.</p>
+<pre>&lt;label&gt;Name *[text* your-name autocomplete:name placeholder "Your name"]&lt;/label&gt;
+&lt;label&gt;Phone number[tel your-phone autocomplete:tel placeholder "Your phone number"]&lt;/label&gt;
+&lt;label&gt;Email *[email* your-email autocomplete:email placeholder "you@example.com"]&lt;/label&gt;
+&lt;label&gt;Message *[textarea* your-message x4 placeholder "Ask us anything about this device"]&lt;/label&gt;
+[submit "Send message"]</pre>
+<p>Name, email and message are required. Phone is optional, because asking for both a phone number and an email cuts the number of people who send the form. To make phone required, change <code>[tel</code> to <code>[tel*</code> and add an asterisk to the label.</p>
+
+<h2>3. Mail tab</h2>
+<div class="field">To</div>
+<pre>info@crcrepair.co.uk</pre>
+<div class="note"><p>❓ Change this if product enquiries should go to a different inbox, for example a sales address.</p></div>
+<div class="field">From</div>
+<pre>[_site_title] &lt;wordpress@crcrepair.co.uk&gt;</pre>
+<p>If the site sends email through an SMTP plugin, use that plugin's sending address here instead.</p>
+<div class="field">Subject</div>
+<pre>Product enquiry: [_post_title]</pre>
+<div class="field">Additional headers</div>
+<pre>Reply-To: [your-name] &lt;[your-email]&gt;</pre>
+<div class="field">Message body</div>
+<pre>New product enquiry from the website.
+
+Product: [_post_title]
+Page: [_post_url]
+
+Name: [your-name]
+Phone: [your-phone]
+Email: [your-email]
+
+Message:
+[your-message]</pre>
+<p><code>[_post_title]</code> and <code>[_post_url]</code> fill in the product the customer was viewing, so one form works on every product page. Clicking Reply in your email client replies straight to the customer.</p>
+
+<h2>4. Mail (2): optional auto-reply to the customer</h2>
+<p>Tick <strong>Use Mail (2)</strong> if you want customers to get a confirmation.</p>
+<div class="field">To</div>
+<pre>[your-email]</pre>
+<div class="field">From</div>
+<pre>[_site_title] &lt;wordpress@crcrepair.co.uk&gt;</pre>
+<div class="field">Subject</div>
+<pre>We've got your question about the [_post_title]</pre>
+<div class="field">Additional headers</div>
+<pre>Reply-To: info@crcrepair.co.uk</pre>
+<div class="field">Message body</div>
+<pre>Hi [your-name],
+
+Thanks for your question about the [_post_title]. Our team will get back to you shortly.
+
+Your message:
+[your-message]
+
+CrC Repair®
+https://www.crcrepair.co.uk/</pre>
+
+<h2>5. Messages tab</h2>
+<div class="field">Sender's message was sent successfully</div>
+<pre>Thanks, your question has been sent. We'll get back to you shortly.</pre>
+<div class="field">One or more fields have an error</div>
+<pre>Please check the highlighted fields and try again.</pre>
+<p>The other messages can stay at their defaults. The page styling shows field errors in light amber, so they stay readable on the blue background.</p>
+
+<h2>6. Spam protection</h2>
+<p>A public form on product pages will attract spam. If the site doesn't already protect CF7, add Cloudflare Turnstile or reCAPTCHA v3 under <strong>Contact → Integration</strong>. Neither changes the form's design.</p>
+</div>
+</body>
+</html>

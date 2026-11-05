@@ -45,7 +45,7 @@ FAQ = [
     ("faq-12pro-vs-12", "Is the iPhone 12 Pro worth it over the iPhone 12?",
      "Choose the Pro if you want the 2x telephoto camera, the LiDAR scanner, Apple ProRAW, a brighter screen, a "
      "stainless steel frame and 128GB as the starting storage. The iPhone 12 shares the A14 chip, the 6.1-inch OLED "
-     "screen, 5G, MagSafe and the main and Ultra Wide cameras, and it's lighter at 164g."),
+     "screen, 5G, MagSafe and the main and Ultra Wide cameras, and it's lighter at 162g."),
     ("faq-12pro-ios", "Is the iPhone 12 Pro still supported by Apple?",
      "Yes. Apple supports the iPhone 12 Pro with iOS 27. Apple Intelligence isn't available on it, though, as it "
      "needs an iPhone 15 Pro or later."),

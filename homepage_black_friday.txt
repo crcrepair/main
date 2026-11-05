@@ -54,7 +54,8 @@ html body .stk-ced969f.stk-block::before,html body .stk-589b90e.stk-block::befor
 /* hero deal: £40 OFF highlight + fine print */
 html body .stk-81a5648 .stk-block-text__text{margin:4px 0 14px!important;line-height:1.2!important}
 html body .stk-81a5648 .crc-bf-off{display:inline-block;padding:6px 14px;border-radius:10px;background:linear-gradient(180deg,var(--bf-gold2),var(--bf-gold));color:#111!important;font:900 clamp(26px,2.6vw,34px)/1 'Montserrat',sans-serif;letter-spacing:-.01em;box-shadow:0 10px 26px -10px rgba(246,185,59,.8)}
-html body .stk-81a5648 .crc-bf-fine{display:block;margin-top:8px;color:rgba(235,240,250,.62)!important;font:500 11px/1.3 'Montserrat',sans-serif;letter-spacing:.02em}
+html body .stk-81a5648 .crc-bf-fine{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+html body .stk-81a5648 .crc-bf-fine span{display:inline-block;padding:4px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);color:rgba(235,240,250,.82)!important;font:600 11px/1.2 'Montserrat',sans-serif;letter-spacing:.02em;white-space:nowrap}
 /* iPhone SE3 tile: free gift line */
 html body :is(.stk-fea32e5,.stk-a2e9d2f) .crc-bf-gift{display:inline-block;margin-top:4px;color:#fff!important;font-weight:700;font-size:13px}
 html body .stk-3374230.stk-block{background-color:#070c1f!important;background-image:url(https://crcrepair.co.uk/store/wp-content/uploads/2026/09/s25u-banner.png),radial-gradient(120% 140% at 85% 100%,#2a5bd7 0%,#143273 38%,#0a1638 72%,#070c1f 100%)!important;background-position:bottom right,center!important;background-repeat:no-repeat,no-repeat!important;background-size:75%,cover!important}
@@ -167,7 +168,7 @@ html body .stk-dca275d .wp-block-blocksy-query .wp-block-cover,html body .stk-dc
 <!-- /wp:stackable/heading -->
 
 <!-- wp:stackable/text {"uniqueId":"81a5648","textColor1":"#384955","fontSize":"20"} -->
-<div class="wp-block-stackable-text stk-block-text stk-block stk-81a5648" data-block-id="81a5648"><style>.stk-81a5648 .stk-block-text__text{font-size:20px !important;color:#384955 !important;}@media screen and (max-width: 1023px){.stk-81a5648 .stk-block-text__text{font-size:20px !important;}}</style><p class="stk-block-text__text has-text-color"><span class="crc-bf-off">£40 OFF</span><span class="crc-bf-fine">(any capacity, colour, grade)</span></p></div>
+<div class="wp-block-stackable-text stk-block-text stk-block stk-81a5648" data-block-id="81a5648"><style>.stk-81a5648 .stk-block-text__text{font-size:20px !important;color:#384955 !important;}@media screen and (max-width: 1023px){.stk-81a5648 .stk-block-text__text{font-size:20px !important;}}</style><p class="stk-block-text__text has-text-color"><span class="crc-bf-off">£40 OFF</span><span class="crc-bf-fine"><span>Any capacity</span><span>Any colour</span><span>Any grade</span></span></p></div>
 <!-- /wp:stackable/text -->
 
 <!-- wp:stackable/button-group {"uniqueId":"bee541c"} -->

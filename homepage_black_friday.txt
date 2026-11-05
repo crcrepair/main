@@ -17,7 +17,7 @@ html body :is(.crc-bf-banner,.stk-block,.wp-block-woocommerce-product-collection
  repeating-linear-gradient(135deg,rgba(255,255,255,.028) 0 2px,transparent 2px 14px),
  #080a10}
 .crc-bf-banner::after{content:"BLACK FRIDAY";position:absolute;right:-1.5vw;bottom:-0.12em;font:900 clamp(70px,13vw,190px)/1 'Montserrat',sans-serif;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none}
-.crc-bf-banner .crc-bf-inner{position:relative;z-index:1;max-width:1290px;margin:0 auto;padding:46px 20px 50px;box-sizing:border-box}
+.crc-bf-banner .crc-bf-inner{position:relative;z-index:1;max-width:1290px;margin:0 auto;padding:24px 20px 50px;box-sizing:border-box}
 .crc-bf-banner .crc-bf-tag{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;padding:7px 14px 7px 10px;border:1px solid rgba(246,185,59,.45);border-radius:999px;background:rgba(246,185,59,.08);color:var(--bf-gold2);font:700 12px/1 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase}
 .crc-bf-banner .crc-bf-tag i{width:8px;height:8px;border-radius:50%;background:var(--bf-gold);box-shadow:0 0 0 4px rgba(246,185,59,.18)}
 .crc-bf-banner h2.crc-bf-title{margin:0;color:#fff;font:900 clamp(40px,6.4vw,78px)/.98 'Montserrat',sans-serif;letter-spacing:-.03em;text-transform:uppercase}
@@ -137,7 +137,7 @@ html body .stk-dca275d .wp-block-blocksy-query h2 a:hover{color:var(--bf-gold2)!
 html body .stk-dca275d .wp-block-blocksy-query .wp-block-cover,html body .stk-dca275d .wp-block-blocksy-query [class*="ct-dynamic-media"]{border-radius:16px!important;overflow:hidden}
 
 @media (max-width:767px){
- .crc-bf-banner .crc-bf-inner{padding:34px 16px 38px}
+ .crc-bf-banner .crc-bf-inner{padding:20px 16px 38px}
  .crc-bf-banner a.crc-bf-btn{flex:1 1 auto;justify-content:center}
  html body :is(.stk-3374230,.stk-91eef04,.stk-fea32e5,.stk-21a5b5c,.stk-1048531,.stk-a2e9d2f,.stk-d70787e).stk-block:hover{transform:none}
 }

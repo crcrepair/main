@@ -85,10 +85,6 @@ html body :is(.stk-bbf1807,.stk-a621086) .stk-block-heading__text::after,html bo
 /* ---------- categories carousel ---------- */
 /* room above/below the tiles so the hover lift + gold outline isn't clipped */
 html body .stk-f5fade1 .stk-block-carousel__slider{padding-top:16px!important;padding-bottom:24px!important;padding-left:4px!important;padding-right:4px!important;box-sizing:border-box!important}
-/* light grey tile behind each icon (multiply blends any white in the icon images into the grey) */
-html body .stk-f5fade1 .stk-block-column.stk-block,html body .stk-f5fade1 .stk-block-column.stk-block:before{background-color:#e4e8ee!important}
-html body .stk-f5fade1 .stk-block-column.stk-block:hover,html body .stk-f5fade1 .stk-block-column.stk-block:hover:before{background-color:#edf0f4!important}
-html body .stk-f5fade1 .stk-block-column img{mix-blend-mode:multiply}
 html body .stk-f5fade1 .stk-block-column.stk-block{border-radius:var(--bf-r)!important;box-shadow:0 14px 30px -18px rgba(0,0,0,.9);transition:transform .2s,box-shadow .2s}
 html body .stk-f5fade1 .stk-block-column.stk-block:hover{transform:translateY(-4px);box-shadow:0 22px 40px -20px rgba(0,0,0,1),0 0 0 2px var(--bf-gold)}
 html body .stk-f5fade1 .stk-block-column p{color:#111827!important;font-weight:700}

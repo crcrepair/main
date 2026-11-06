@@ -48,6 +48,15 @@ For a new product, copy the template, change only what's product-specific (below
 - Button styles use `!important` because the live theme overrides the booking link's shape. Keep that.
 - Paste into the short description **Text** tab only.
 
+### Black Friday variant (approved 6 Nov 2026 on the Galaxy S23 Ultra)
+
+`templates/product-short-description-template-black-friday.html`: the same short description with a dark
+"Black Friday Deal" banner between the tagline and the "Already have…?" line (gold "Deal", faint "BLACK FRIDAY"
+watermark, one line of copy: "Sharper price on the <Product>. Shop with our 2 year warranty, express delivery or
+collection from store."). Used only when Gabor says a product is a Black Friday deal. Per product, change only the
+tagline, the product name in the banner copy, the "Already have…?" line and the booking link. The banner's CSS,
+padding (10px top inside the box) and wording stay as approved. Deliver the normal short description too.
+
 ## SEO deliverables with every product (from 2 Nov 2026)
 
 Deliver these alongside the long and short descriptions for every product, ready to paste into SEOPress and the media library:

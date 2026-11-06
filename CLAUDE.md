@@ -35,6 +35,14 @@ Owner: Gabor (CrC Repair®, crcrepair.co.uk). British English throughout.
 5. Every product also gets: SEO title, meta description, schema, FB + X title/description,
    image alt texts + captions, and product tags (Brand, line, "<model> series", model,
    condition, 4G/5G — colours and storage go in attributes, not tags).
+6. Black Friday deals (from 6 Nov 2026): Gabor says before each product whether it's a Black Friday
+   deal. If it is, ALSO deliver `<slug>-short-description-black-friday.html` from
+   `templates/product-short-description-template-black-friday.html` (approved on the Galaxy S23 Ultra):
+   the standard short description with a dark "Black Friday Deal" banner between the tagline and the
+   "Already have…?" line. Change only the tagline, the product name in the banner text
+   ("Sharper price on the <Product>."), the "Already have a/an <Product>?" line and the booking
+   `?selected=` value. Keep the banner CSS, padding and wording as approved. The normal short
+   description is still delivered for after the sale. If Gabor doesn't say, it's not a deal.
 
 Decided by Gabor (3 Nov 2026): the condition tag is `Pre-owned`, and the booking link pattern
 `?selected=repairs/Apple/<Model-with-hyphens>` is correct (confirmed on the iPhone 16 Pro Max).

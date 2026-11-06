@@ -16,10 +16,10 @@ TAGLINE = "Compact power with next-gen AI intelligence."
 BLACK_FRIDAY = False
 
 META_TITLE = "Buy Samsung Galaxy S25 | Compact, Galaxy AI | CrC Repair®"
-META_DESC = ("Buy a Samsung Galaxy S25 with a 6.2-inch 120Hz screen, the Snapdragon 8 Elite, Galaxy AI and a 50MP triple "
-             "camera, at just 162g. 60-point checked, 2-year warranty and free MOT.")
-OG_TITLE = "Galaxy S25: compact flagship with Snapdragon 8 Elite, 2-year warranty"
-OG_DESC = "The compact Galaxy S25: Snapdragon 8 Elite, Galaxy AI and a 50MP triple camera at 162g. Fully checked and covered for two years."
+META_DESC = ("Buy a compact Samsung Galaxy S25 with a 6.2-inch 120Hz screen, Snapdragon 8 Elite, Galaxy "
+             "AI and 50MP triple camera. 60-point checked, 2-year warranty.")
+OG_TITLE = "Galaxy S25: compact flagship, Snapdragon 8 Elite, 2-year cover"
+OG_DESC = "The compact Galaxy S25: Snapdragon 8 Elite, Galaxy AI and a 50MP triple camera at 162g. Fully checked, 2-year cover."
 X_TITLE = "Samsung Galaxy S25 with a 2-year warranty | CrC Repair®"
 X_DESC = "6.2-inch 120Hz screen, Snapdragon 8 Elite, Galaxy AI and 50MP triple camera at 162g. 60-point checked, free Device MOT."
 

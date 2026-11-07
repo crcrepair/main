@@ -1,0 +1,557 @@
+<!-- wp:html -->
+<style>
+  :root{
+    --ink:#101418;
+    --ink-soft:#3d4650;
+    --white:#ffffff;
+    --accent:#4180d5;
+    --accent-dark:#2c5da3;
+    --steel:#1b2530;
+    --line:#dfe4e9;
+    --amber:#f0a500;
+    --radius:14px;
+  }
+  .crc-page{font-family:'Montserrat',system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.65;font-size:16.5px}
+  .crc-page h1,.crc-page h2,.crc-page h3{font-family:'Montserrat',system-ui,sans-serif;line-height:1.15;font-weight:800;letter-spacing:-.01em;margin:0}
+  .crc-page p{margin:0}
+  .crc-page a{color:var(--accent)}
+  .crc-page a:hover{color:var(--accent-dark)}
+  .crc-page [id]{scroll-margin-top:24px}
+  .crc-page .wp-block-group{margin:0}
+
+  .crc-page .titlebox{padding:14px 0 22px}
+  .crc-page .titlebox h1{font-size:clamp(21px,2.8vw,30px);font-weight:600}
+  .crc-page .titlebox h1::after{content:"";display:block;width:64px;height:6px;background:var(--accent);border-radius:3px;margin-top:14px}
+
+  .crc-page .jumpnav{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 2px 10px rgba(16,20,24,.05);padding:14px 18px;display:flex;flex-wrap:wrap;gap:6px}
+  .crc-page .jumpnav a{text-decoration:none;font-size:13.5px;font-weight:600;color:var(--ink-soft);padding:7px 13px;border-radius:999px;border:1px solid var(--line)}
+  .crc-page .jumpnav a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  .crc-page .block{padding:28px 0}
+  .crc-page .block h2{font-size:clamp(18px,2.3vw,25px);margin-bottom:22px;text-align:center;color:var(--ink)}
+  .crc-page .block h2::after{content:"";display:block;width:64px;height:6px;background:var(--accent);border-radius:3px;margin:12px auto 0}
+  .crc-page .lede p{margin-bottom:16px;color:var(--ink-soft)}
+  .crc-page .lede p:last-child{margin-bottom:0}
+
+  .crc-page .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 2px 10px rgba(16,20,24,.05)}
+  .crc-page .grid{display:grid;gap:20px}
+  .crc-page .grid > *{margin:0}
+  .crc-page .grid.c2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .crc-page .grid.c3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .crc-page .grid.c5{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+
+  .crc-page .rcard h3{font-size:16px;margin-bottom:14px;padding-bottom:12px;border-bottom:3px solid var(--accent)}
+  .crc-page .rcard p{color:var(--ink-soft);font-size:15px;margin-bottom:12px}
+  .crc-page .rcard p:last-child{margin-bottom:0}
+  .crc-page .sectionintro{margin-bottom:22px;color:var(--ink-soft)}
+
+  .crc-page .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .crc-page .chips span{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--accent);padding:9px 15px;border-radius:10px;font-weight:600;font-size:14px;box-shadow:0 1px 4px rgba(16,20,24,.05);color:var(--ink);display:block}
+  .crc-page .chips span b{display:block;font-weight:700;font-size:13px;color:var(--accent-dark)}
+
+  .crc-page .note.card{border-top:6px solid var(--amber)}
+  .crc-page .note.card p{color:var(--ink-soft);margin-bottom:14px}
+  .crc-page .note.card p:last-child{margin-bottom:0}
+
+  .crc-page .warranty.card{text-align:center;border-top:6px solid var(--accent)}
+  .crc-page .warranty.card p{color:var(--ink-soft)}
+  .crc-page .warranty.card .big{font-weight:900;font-size:24px;color:var(--accent);margin-bottom:10px}
+  .crc-page .warranty.card h3{font-size:16px;margin-bottom:10px}
+
+  .crc-page .why-tile{background:var(--steel);color:#fff;border-radius:12px;padding:24px 22px}
+  .crc-page .why-tile h3{font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:10px;color:#fff}
+  .crc-page .why-tile h3::before{content:"✔";color:var(--accent);background:#fff;width:24px;height:24px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+  .crc-page .why-tile p{color:#c8d2dc;font-size:14.5px}
+
+  .crc-page .storegrid a{display:block;text-decoration:none}
+  .crc-page .storegrid h3{background:var(--white);border:1px solid var(--line);border-bottom:5px solid var(--accent);border-radius:12px;padding:18px;font-size:15.5px;text-align:center;transition:.15s;color:var(--ink)}
+  .crc-page .storegrid a:hover h3{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .crc-page .stores-after{margin-top:20px;text-align:center;color:var(--ink-soft);font-weight:500}
+
+  .crc-page .gallery figure{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 2px 10px rgba(16,20,24,.05);overflow:hidden;margin:0}
+  .crc-page .gallery img{display:block;width:100%;height:auto}
+  .crc-page .imgplaceholder{background:var(--white);border:2px dashed var(--line);border-radius:var(--radius);padding:34px 22px;text-align:center;color:var(--ink-soft);font-size:14px;font-weight:600}
+
+  .crc-page .cta-banner{background:var(--accent);color:#fff;border-radius:var(--radius);padding:36px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+  .crc-page .cta-banner h2{color:#fff;text-align:left;margin:0}
+  .crc-page .cta-banner h2::after{content:"";display:block;width:64px;height:6px;background:#fff;border-radius:3px;margin:12px 0 0}
+  .crc-page .cta-banner .txt{flex:1 1 380px}
+  .crc-page .cta-banner p{color:#eaf1fb;margin-top:14px}
+  .crc-page .btn{display:inline-block;padding:13px 26px;border-radius:10px;font-weight:700;text-decoration:none;font-size:15px}
+  .crc-page .btn.light{background:#fff;color:var(--accent)}
+  .crc-page .btn.light:hover{background:#dbe7f7;color:var(--accent-dark)}
+  .crc-page .btn.ghost{border:2px solid rgba(255,255,255,.7);color:#fff}
+  .crc-page .btn.ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+  .crc-page .cta-banner .actions{display:flex;flex-wrap:wrap;gap:12px}
+  @media (max-width:720px){
+    .crc-page .cta-banner{justify-content:center;text-align:center}
+    .crc-page .cta-banner h2{text-align:center}
+    .crc-page .cta-banner h2::after{margin:12px auto 0}
+    .crc-page .cta-banner .actions{width:100%;justify-content:center}
+  }
+
+  .crc-page .faq details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .crc-page .faq summary{cursor:pointer;padding:18px 22px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .crc-page .faq summary::-webkit-details-marker{display:none}
+  .crc-page .faq summary h3{font-size:15px;font-weight:700}
+  .crc-page .faq details[open] summary{border-bottom:1px solid var(--line)}
+  .crc-page .faq summary::after{content:"+";font-weight:900;font-size:24px;color:var(--accent);flex-shrink:0}
+  .crc-page .faq details[open] summary::after{content:"–"}
+  .crc-page .faq .a{padding:16px 22px 20px;color:var(--ink-soft)}
+
+  .crc-page :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<style>
+  .crc-page .titlebox{text-align:center;padding:10px 0 16px}
+  .crc-page .titlebox h1{font-size:clamp(26px,3.4vw,40px);font-weight:800}
+  .crc-page .titlebox h1::after{margin:14px auto 0}
+  .crc-page .titlebox .sectionintro{max-width:760px;margin:0 auto 10px}
+  .crc-page .crumbs{font-size:13.5px;color:var(--ink-soft);margin:6px 0 10px}
+  .crc-page .crumbs ol{list-style:none;margin:0;padding:0;display:flex;gap:8px}
+  .crc-page .crumbs li+li::before{content:"›";margin-right:8px;color:var(--line)}
+  .crc-page .crumbs a{text-decoration:none;font-weight:600}
+  .crc-page .formbox{padding:6px 0 26px}
+  .crc-page .grid.c4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  /* numbered steps with icons */
+  .crc-page .step{text-align:center;padding:26px 22px}
+  .crc-page .step-ico{position:relative;width:66px;height:66px;border-radius:20px;background:#eaf1fb;color:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .crc-page .step-ico svg{width:30px;height:30px}
+  .crc-page .step-ico .n{position:absolute;top:-9px;right:-9px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #fff}
+  .crc-page .step h3{font-size:16px;margin-bottom:8px}
+  .crc-page .step p{color:var(--ink-soft);font-size:15px}
+  .crc-page .smallprint{font-size:12px;line-height:1.5;color:var(--ink-soft);text-align:center;margin-top:16px}
+  .crc-page .smallprint a{color:var(--ink-soft);text-decoration:underline}
+  /* device cards & price cards */
+  .crc-page .dev-ico{width:48px;height:48px;border-radius:14px;background:#eaf1fb;color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+  .crc-page .dev-ico svg{width:24px;height:24px}
+  .crc-page .rcard h3 a{color:inherit;text-decoration:none}
+  .crc-page .rcard h3 a:hover{color:var(--accent)}
+  .crc-page .why-tile h3::before{content:"✔"}
+  .crc-page .btn.solid{background:var(--accent);color:#fff}
+  .crc-page .btn.solid:hover{background:var(--accent-dark);color:#fff}
+  .crc-page .about-row{gap:32px;align-items:center}
+  .crc-page .about-row .about-img img{border-radius:var(--radius);box-shadow:0 2px 10px rgba(16,20,24,.08)}
+  .crc-page .about-row h2{text-align:left;margin-bottom:16px}
+  .crc-page .about-row h2::after{margin:12px 0 0}
+  .crc-page .about-row p{color:var(--ink-soft);margin-bottom:14px}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:group {"className":"crc-page crc-collection"} -->
+<div class="wp-block-group crc-page crc-collection">
+
+<!-- wp:html -->
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="https://www.crcrepair.co.uk/">Home</a></li><li aria-current="page">Collection &amp; drop-off repair service</li></ol></nav>
+<!-- /wp:html -->
+
+<!-- wp:group {"className":"titlebox"} -->
+<div class="wp-block-group titlebox">
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">Book your collection and drop-off repair service</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sectionintro"} -->
+<p class="sectionintro">Can't get to a store? Fill in the form and we'll collect your phone, tablet, laptop or games console from your door, repair it in your local Pocket Geek Tech Repair store and bring it back. From £29.95 within 5 miles of the store.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"book","className":"formbox"} -->
+<div class="wp-block-group formbox" id="book">
+<!-- wp:html -->
+<!-- Collection booking WALKIN -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-05e681ab-d0c8-4fcb-acd1-1310369e895b" data-elfsight-app-lazy></div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"how-it-works","className":"block"} -->
+<div class="wp-block-group block" id="how-it-works">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How it works</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sectionintro"} -->
+<p class="sectionintro">Four steps from a broken device to a fixed one, without leaving the house.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"grid c4"} -->
+<div class="wp-block-group grid c4">
+<!-- wp:group {"anchor":"step-1","className":"card step"} -->
+<div class="wp-block-group card step" id="step-1">
+<!-- wp:html -->
+<div class="step-ico"><span class="n">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3.5h6M9 9h6M9 13h6M9 17h3"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Fill in the form</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Tell us about the device, the fault and where to collect from. It takes about a minute.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"step-2","className":"card step"} -->
+<div class="wp-block-group card step" id="step-2">
+<!-- wp:html -->
+<div class="step-ico"><span class="n">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">We call you to arrange the collection</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We confirm the fee for your distance, check the parts are in stock and agree a collection slot that suits you.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"step-3","className":"card step"} -->
+<div class="wp-block-group card step" id="step-3">
+<!-- wp:html -->
+<div class="step-ico"><span class="n">3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">We repair the device</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>One of our own insured drivers brings it to your local store, where our technicians repair and test it.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"step-4","className":"card step"} -->
+<div class="wp-block-group card step" id="step-4">
+<!-- wp:html -->
+<div class="step-ico"><span class="n">4</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="17.5" cy="18.5" r="2"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">We return the device</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>As soon as it's ready we deliver it back to your door, with the same warranty as an in-store repair.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"smallprint"} -->
+<p class="smallprint">Our collection and drop-off service is only available from our <a href="https://www.crcrepair.co.uk/bournemouth/">Bournemouth</a>, <a href="https://www.crcrepair.co.uk/farringdon/">Farringdon</a>, <a href="https://www.crcrepair.co.uk/surreyquays/">Surrey Quays</a>, <a href="https://www.crcrepair.co.uk/romford/">Romford</a> and <a href="https://www.crcrepair.co.uk/whetstone/">Whetstone</a> stores.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"pricing","className":"block"} -->
+<div class="wp-block-group block" id="pricing">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What the collection service costs</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sectionintro"} -->
+<p class="sectionintro">Simple, upfront pricing. You'll know the full cost before anything is booked.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"grid c3"} -->
+<div class="wp-block-group grid c3">
+<!-- wp:group {"anchor":"price-basic","className":"warranty card"} -->
+<div class="wp-block-group warranty card" id="price-basic">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Collection and return</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"big"} -->
+<p class="big">£29.95</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Covers collection and delivery back to you within 5 miles of the store.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"price-extra","className":"warranty card"} -->
+<div class="wp-block-group warranty card" id="price-extra">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Further than 5 miles</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"big"} -->
+<p class="big">£1 per mile</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Added for each additional mile, confirmed with you on the call before we book.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"price-repair","className":"warranty card"} -->
+<div class="wp-block-group warranty card" id="price-repair">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">The repair itself</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"big"} -->
+<p class="big">Fixed quote</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Quoted before any work starts. Nothing is done without your go-ahead.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"stores-after"} -->
+<p class="stores-after">Prefer to drop in? Repairs in store carry no collection fee – find your nearest store on the <a href="https://www.crcrepair.co.uk/store-locator/">store locator</a>.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"devices","className":"block"} -->
+<div class="wp-block-group block" id="devices">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What we can collect and repair</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sectionintro"} -->
+<p class="sectionintro">Anything we repair in store can be collected. Tap a device type for the repairs we offer.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"grid c4"} -->
+<div class="wp-block-group grid c4">
+<!-- wp:group {"anchor":"dev-phone","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-phone">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/phone-repair/">Phones</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.crcrepair.co.uk/iphone-repair/">iPhone</a>, <a href="https://www.crcrepair.co.uk/samsung-repair/">Samsung</a>, <a href="https://www.crcrepair.co.uk/google-pixel-repair/">Google Pixel</a>, Motorola and other Android phones – screens, batteries, charging ports, cameras and water damage.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"dev-tablet","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-tablet">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 17.5h.01"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/tablet-repair/">Tablets &amp; iPads</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.crcrepair.co.uk/ipad-repair/">iPad</a>, Samsung Galaxy Tab and other tablets – cracked screens, batteries and charging faults.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"dev-laptop","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-laptop">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/laptop-repair/">Laptops, MacBooks &amp; PCs</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Windows laptops, <a href="https://www.crcrepair.co.uk/macbook-repair/">MacBooks</a> and <a href="https://www.crcrepair.co.uk/computer-repair/">desktop PCs</a> – screens, keyboards, batteries, upgrades, virus removal and data recovery.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"dev-console","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-console">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/gaming-console-repair/">Games consoles</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.crcrepair.co.uk/playstation-repair/">PlayStation</a>, <a href="https://www.crcrepair.co.uk/xbox-repair/">Xbox</a> and <a href="https://www.crcrepair.co.uk/nintendo-repair/">Nintendo Switch</a> – HDMI ports, overheating, disc drives and controller faults.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"why-us","className":"block"} -->
+<div class="wp-block-group block" id="why-us">
+<!-- wp:columns {"verticalAlignment":"center","className":"about-row"} -->
+<div class="wp-block-columns are-vertically-aligned-center about-row"><!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":27,"width":"560px","sizeSlug":"full","linkDestination":"none","className":"about-img"} -->
+<figure class="wp-block-image size-full is-resized about-img"><img src="https://www.crcrepair.co.uk/wp-content/uploads/2025/02/main-page-pic1.webp" alt="Technician repairing a collected phone at a Pocket Geek Tech Repair store by CrC Repair®" class="wp-image-27" style="width:560px" width="560" height="374"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading -->
+<h2 class="wp-block-heading">Why use our collection and drop-off service?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>It's the convenient alternative to a mail-in or postal repair: no packaging, no courier queues and no waiting for a returns label. Your device travels with our own staff, is repaired by our own technicians and comes back with the same warranty as if you'd walked into the store.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Prefer a repair on your doorstep while you wait? See our <a href="https://www.crcrepair.co.uk/come-to-you/">come-to-you service</a>. Happy to visit? <a href="https://www.crcrepair.co.uk/book-a-repair/">Book an in-store repair</a> at any of our 10 stores.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:group {"className":"grid c4"} -->
+<div class="wp-block-group grid c4">
+<!-- wp:group {"anchor":"why-insured","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-insured">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Our own insured drivers</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>No third-party couriers. Your device is covered by our insurance from collection to return.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"why-stores","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-stores">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Repaired in our own stores</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Collected devices go to your local Pocket Geek Tech Repair store, not to a depot somewhere else in the country.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"why-warranty","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-warranty">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Same warranty as in store</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.crcrepair.co.uk/lifetime-warranty/">Lifetime warranty</a> on phone screen repairs and 12 months on most other repairs.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"why-business","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-business">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Built for busy people and businesses</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Collect from home or the office, several devices in one trip, and a single point of contact throughout.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"faq","className":"block faq"} -->
+<div class="wp-block-group block faq" id="faq">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Collection and drop-off: frequently asked questions</h2>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<details open id="faq-same-day">
+  <summary><h3>Is collection and drop-off a same-day service?</h3></summary>
+  <div class="a">It can be, depending on the repair. That's why we book collections in advance: when we call you we check the parts are in stock and plan the slot so the repair is completed in the shortest possible time. Simple repairs such as phone screens and batteries are often back with you the same day; laptop, console and board-level repairs can take longer, and we'll tell you the expected return date when we call.</div>
+</details>
+<details id="faq-safe">
+  <summary><h3>Is my phone safe?</h3></summary>
+  <div class="a">Yes. Collections and returns are made by our own fully insured staff, not a third-party courier, and your device is covered by our insurance from the moment we collect it until it's back in your hands. In store it's booked into our system and handled only by our technicians, and you can follow its progress in the <a href="https://www.crcrepair.co.uk/repair-portal">Repair Portal</a>.</div>
+</details>
+<details id="faq-cost">
+  <summary><h3>How much does the collection and drop-off service cost?</h3></summary>
+  <div class="a">The basic fee is £29.95, which covers collection and return within 5 miles of the store. Beyond that we charge £1 for each additional mile. We confirm the exact fee on the call before anything is booked, and the repair itself is quoted separately.</div>
+</details>
+<details id="faq-areas">
+  <summary><h3>Which areas do you cover?</h3></summary>
+  <div class="a">The service runs from our <a href="https://www.crcrepair.co.uk/bournemouth/">Bournemouth</a>, <a href="https://www.crcrepair.co.uk/farringdon/">Farringdon</a>, <a href="https://www.crcrepair.co.uk/surreyquays/">Surrey Quays</a>, <a href="https://www.crcrepair.co.uk/romford/">Romford</a> and <a href="https://www.crcrepair.co.uk/whetstone/">Whetstone</a> stores. There's no fixed cut-off: give us your postcode on the form and we'll confirm on the call whether we can reach you and what the mileage fee will be.</div>
+</details>
+<details id="faq-devices">
+  <summary><h3>Which devices can you collect?</h3></summary>
+  <div class="a"><a href="https://www.crcrepair.co.uk/phone-repair/">Phones</a> (iPhone, Samsung, Google Pixel, Motorola and other Android), <a href="https://www.crcrepair.co.uk/tablet-repair/">tablets and iPads</a>, <a href="https://www.crcrepair.co.uk/laptop-repair/">laptops</a>, <a href="https://www.crcrepair.co.uk/macbook-repair/">MacBooks</a> and desktop PCs, and <a href="https://www.crcrepair.co.uk/gaming-console-repair/">games consoles</a> (PlayStation, Xbox and Nintendo Switch).</div>
+</details>
+<details id="faq-prepare">
+  <summary><h3>Do I need to do anything before you collect?</h3></summary>
+  <div class="a">Back up your data if you can, and remove any case, SIM tray tools or accessories you want to keep. If we need your passcode to test the repair, we'll ask for it on the call and you can remove it again when the device is returned.</div>
+</details>
+<details id="faq-warranty">
+  <summary><h3>Is the warranty the same as an in-store repair?</h3></summary>
+  <div class="a">Yes. Collected devices are repaired in our own stores by the same technicians, with the same <a href="https://www.crcrepair.co.uk/lifetime-warranty/">lifetime warranty</a> on phone screen repairs and a 12-month warranty on most other repairs.</div>
+</details>
+<details id="faq-quote">
+  <summary><h3>What happens if I don't want to go ahead with the quote?</h3></summary>
+  <div class="a">We always quote before any work starts. If you decide not to proceed, we'll bring your device back to you unrepaired; only the collection fee is payable.</div>
+</details>
+<details id="faq-business">
+  <summary><h3>Can businesses use the collection service?</h3></summary>
+  <div class="a">Yes. It's ideal for offices and other organisations with several devices to repair: one collection, one return and a single point of contact. Call us on <a href="tel:+443301331131">0330 133 1131</a> or email <a href="mailto:info@crcrepair.co.uk">info@crcrepair.co.uk</a> to arrange regular collections.</div>
+</details>
+<details id="faq-workplace">
+  <summary><h3>Can you collect from my workplace instead of my home?</h3></summary>
+  <div class="a">Yes. We can collect from and return to any address we can reach – home, office or elsewhere – and we agree the time slot with you on the call.</div>
+</details>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"cta","className":"cta-banner"} -->
+<div class="wp-block-group cta-banner" id="cta">
+<!-- wp:group {"className":"txt"} -->
+<div class="wp-block-group txt">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Ready to book your collection?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Fill in the form at the top of the page and we'll call you back to arrange it. From £29.95 within 5 miles of our Bournemouth, Farringdon, Surrey Quays, Romford and Whetstone stores.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:html -->
+<div class="actions">
+  <a class="btn light" href="#book">Book a collection</a>
+  <a class="btn ghost" href="tel:+443301331131">Call 0330 133 1131</a>
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->

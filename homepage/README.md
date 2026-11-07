@@ -1,5 +1,9 @@
 # CrC Repair® homepage v2.0 / v2.1
 
+> The collection & drop-off page (`/collection-booking/`) lives in `../collection/` — see `collection/seo-pack.md`
+> for its title, meta, Open Graph / X text, image alt texts and the keyword rationale. It reuses this folder's
+> `css.html` and is verified with `homepage/check_homepage.py`.
+
 Built 7 Nov 2026 for Gabor (crcrepair.co.uk). British English.
 
 **Current file: `home_page_v2.1.html`.** It is Gabor's WordPress export of v2.0 (his edits kept: USP text swapped

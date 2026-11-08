@@ -1,0 +1,632 @@
+<!-- CrC Repair® — /book-a-repair/ content. Paste BELOW the RepairPlugin booking tool (Code editor, Ctrl+Shift+Alt+M).
+Built by booking/build_booking.py, 8 Nov 2026. Starts at H2 because the page title is the H1; if the theme doesn't
+print one, change the first H2 to H1. Schema: book-a-repair_schema.html (FAQPage + BreadcrumbList).
+Popular-repair capsules use ?selected=repairs/Apple/<Model> (confirmed) and repairs/Samsung/Galaxy-<Model> (the product-kit
+pattern – confirm it opens the right model). Those URLs canonicalise to /book-a-repair/, which is intended.
+-->
+<!-- wp:html -->
+<style>
+  :root{
+    --ink:#101418;
+    --ink-soft:#3d4650;
+    --white:#ffffff;
+    --accent:#4180d5;
+    --accent-dark:#2c5da3;
+    --steel:#1b2530;
+    --line:#dfe4e9;
+    --amber:#f0a500;
+    --radius:14px;
+  }
+  .crc-page{font-family:'Montserrat',system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.65;font-size:16.5px}
+  .crc-page h1,.crc-page h2,.crc-page h3{font-family:'Montserrat',system-ui,sans-serif;line-height:1.15;font-weight:800;letter-spacing:-.01em;margin:0}
+  .crc-page p{margin:0}
+  .crc-page a{color:var(--accent)}
+  .crc-page a:hover{color:var(--accent-dark)}
+  .crc-page [id]{scroll-margin-top:24px}
+  .crc-page .wp-block-group{margin:0}
+
+  .crc-page .titlebox{padding:14px 0 22px}
+  .crc-page .titlebox h1{font-size:clamp(21px,2.8vw,30px);font-weight:600}
+  .crc-page .titlebox h1::after{content:"";display:block;width:64px;height:6px;background:var(--accent);border-radius:3px;margin-top:14px}
+
+  .crc-page .jumpnav{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 2px 10px rgba(16,20,24,.05);padding:14px 18px;display:flex;flex-wrap:wrap;gap:6px}
+  .crc-page .jumpnav a{text-decoration:none;font-size:13.5px;font-weight:600;color:var(--ink-soft);padding:7px 13px;border-radius:999px;border:1px solid var(--line)}
+  .crc-page .jumpnav a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  .crc-page .block{padding:28px 0}
+  .crc-page .block h2{font-size:clamp(18px,2.3vw,25px);margin-bottom:22px;text-align:center;color:var(--ink)}
+  .crc-page .block h2::after{content:"";display:block;width:64px;height:6px;background:var(--accent);border-radius:3px;margin:12px auto 0}
+  .crc-page .lede p{margin-bottom:16px;color:var(--ink-soft)}
+  .crc-page .lede p:last-child{margin-bottom:0}
+
+  .crc-page .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 2px 10px rgba(16,20,24,.05)}
+  .crc-page .grid{display:grid;gap:20px}
+  .crc-page .grid > *{margin:0}
+  .crc-page .grid.c2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .crc-page .grid.c3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .crc-page .grid.c5{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+
+  .crc-page .rcard h3{font-size:16px;margin-bottom:14px;padding-bottom:12px;border-bottom:3px solid var(--accent)}
+  .crc-page .rcard p{color:var(--ink-soft);font-size:15px;margin-bottom:12px}
+  .crc-page .rcard p:last-child{margin-bottom:0}
+  .crc-page .sectionintro{margin-bottom:22px;color:var(--ink-soft)}
+
+  .crc-page .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .crc-page .chips span{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--accent);padding:9px 15px;border-radius:10px;font-weight:600;font-size:14px;box-shadow:0 1px 4px rgba(16,20,24,.05);color:var(--ink);display:block}
+  .crc-page .chips span b{display:block;font-weight:700;font-size:13px;color:var(--accent-dark)}
+
+  .crc-page .note.card{border-top:6px solid var(--amber)}
+  .crc-page .note.card p{color:var(--ink-soft);margin-bottom:14px}
+  .crc-page .note.card p:last-child{margin-bottom:0}
+
+  .crc-page .warranty.card{text-align:center;border-top:6px solid var(--accent)}
+  .crc-page .warranty.card p{color:var(--ink-soft)}
+  .crc-page .warranty.card .big{font-weight:900;font-size:24px;color:var(--accent);margin-bottom:10px}
+  .crc-page .warranty.card h3{font-size:16px;margin-bottom:10px}
+
+  .crc-page .why-tile{background:var(--steel);color:#fff;border-radius:12px;padding:24px 22px}
+  .crc-page .why-tile h3{font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:10px;color:#fff}
+  .crc-page .why-tile h3::before{content:"✔";color:var(--accent);background:#fff;width:24px;height:24px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+  .crc-page .why-tile p{color:#c8d2dc;font-size:14.5px}
+
+  .crc-page .storegrid a{display:block;text-decoration:none}
+  .crc-page .storegrid h3{background:var(--white);border:1px solid var(--line);border-bottom:5px solid var(--accent);border-radius:12px;padding:18px;font-size:15.5px;text-align:center;transition:.15s;color:var(--ink)}
+  .crc-page .storegrid a:hover h3{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .crc-page .stores-after{margin-top:20px;text-align:center;color:var(--ink-soft);font-weight:500}
+
+  .crc-page .gallery figure{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 2px 10px rgba(16,20,24,.05);overflow:hidden;margin:0}
+  .crc-page .gallery img{display:block;width:100%;height:auto}
+  .crc-page .imgplaceholder{background:var(--white);border:2px dashed var(--line);border-radius:var(--radius);padding:34px 22px;text-align:center;color:var(--ink-soft);font-size:14px;font-weight:600}
+
+  .crc-page .cta-banner{background:var(--accent);color:#fff;border-radius:var(--radius);padding:36px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+  .crc-page .cta-banner h2{color:#fff;text-align:left;margin:0}
+  .crc-page .cta-banner h2::after{content:"";display:block;width:64px;height:6px;background:#fff;border-radius:3px;margin:12px 0 0}
+  .crc-page .cta-banner .txt{flex:1 1 380px}
+  .crc-page .cta-banner p{color:#eaf1fb;margin-top:14px}
+  .crc-page .btn{display:inline-block;padding:13px 26px;border-radius:10px;font-weight:700;text-decoration:none;font-size:15px}
+  .crc-page .btn.light{background:#fff;color:var(--accent)}
+  .crc-page .btn.light:hover{background:#dbe7f7;color:var(--accent-dark)}
+  .crc-page .btn.ghost{border:2px solid rgba(255,255,255,.7);color:#fff}
+  .crc-page .btn.ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+  .crc-page .cta-banner .actions{display:flex;flex-wrap:wrap;gap:12px}
+  @media (max-width:720px){
+    .crc-page .cta-banner{justify-content:center;text-align:center}
+    .crc-page .cta-banner h2{text-align:center}
+    .crc-page .cta-banner h2::after{margin:12px auto 0}
+    .crc-page .cta-banner .actions{width:100%;justify-content:center}
+  }
+
+  .crc-page .faq details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .crc-page .faq summary{cursor:pointer;padding:18px 22px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .crc-page .faq summary::-webkit-details-marker{display:none}
+  .crc-page .faq summary h3{font-size:15px;font-weight:700}
+  .crc-page .faq details[open] summary{border-bottom:1px solid var(--line)}
+  .crc-page .faq summary::after{content:"+";font-weight:900;font-size:24px;color:var(--accent);flex-shrink:0}
+  .crc-page .faq details[open] summary::after{content:"–"}
+  .crc-page .faq .a{padding:16px 22px 20px;color:var(--ink-soft)}
+
+  .crc-page :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<style>
+  .crc-page .crumbs{font-size:13.5px;color:var(--ink-soft);margin:6px 0 10px}
+  .crc-page .crumbs ol{list-style:none;margin:0;padding:0;display:flex;gap:8px}
+  .crc-page .crumbs li+li::before{content:"›";margin-right:8px;color:var(--line)}
+  .crc-page .crumbs a{text-decoration:none;font-weight:600}
+  .crc-page .grid.c4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  @media (min-width:900px){.crc-page .grid.devgrid{grid-template-columns:repeat(3,1fr)}}
+  .crc-page .dev-ico{width:48px;height:48px;border-radius:14px;background:#eaf1fb;color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+  .crc-page .dev-ico svg{width:24px;height:24px}
+  .crc-page .rcard h3 a{color:inherit;text-decoration:none}
+  .crc-page .rcard h3 a:hover{color:var(--accent)}
+  .crc-page .rcard .models{font-size:13.5px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:10px;margin-top:12px}
+  .crc-page .rcard .models b{color:var(--ink)}
+  /* fault chips as links */
+  .crc-page .chips a{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--accent);padding:9px 15px;border-radius:10px;font-weight:600;font-size:14px;box-shadow:0 1px 4px rgba(16,20,24,.05);color:var(--ink);display:block;text-decoration:none;transition:background .15s,color .15s}
+  .crc-page .chips a:hover{background:var(--accent);color:#fff}
+  .crc-page .chips a b,.crc-page .chips span b{display:block;font-weight:700;font-size:13px;color:var(--accent-dark)}
+  .crc-page .chips a:hover b{color:#eaf1fb}
+  /* numbered steps */
+  .crc-page .step{text-align:center;padding:26px 22px}
+  .crc-page .step-ico{position:relative;width:66px;height:66px;border-radius:20px;background:#eaf1fb;color:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .crc-page .step-ico svg{width:30px;height:30px}
+  .crc-page .step-ico .n{position:absolute;top:-9px;right:-9px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #fff}
+  .crc-page .step h3{font-size:16px;margin-bottom:8px}
+  .crc-page .step p{color:var(--ink-soft);font-size:15px}
+  /* store capsules (same as homepage / product pages) and model capsules */
+  .crc-page .storepills,.crc-page .modelpills{justify-items:stretch}
+  .crc-page .storepills a,.crc-page .modelpills a{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;background:var(--white);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:14px 18px;box-shadow:0 2px 10px rgba(16,20,24,.05);transition:background .15s,border-color .15s,color .15s}
+  .crc-page .storepills a strong,.crc-page .modelpills a strong{font-size:15px;font-weight:700;line-height:1.3}
+  .crc-page .storepills a span{font-size:12.5px;font-weight:500;color:var(--ink-soft);line-height:1.3;margin-top:2px}
+  .crc-page .storepills a:hover,.crc-page .storepills a:focus-visible,.crc-page .modelpills a:hover,.crc-page .modelpills a:focus-visible{background:var(--accent);border-color:var(--accent);color:#fff}
+  .crc-page .storepills a:hover span{color:#eaf1fb}
+  .crc-page .modelpills a{padding:11px 14px}
+  .crc-page .modelpills a strong{font-size:14px}
+  @media (max-width:560px){
+    .crc-page .grid.c5.storepills,.crc-page .grid.c5.modelpills{grid-template-columns:repeat(2,1fr);gap:10px}
+    .crc-page .storepills a,.crc-page .modelpills a{padding:10px 12px}
+    .crc-page .storepills a span{display:none}
+  }
+  .crc-page .btn.solid{background:var(--accent);color:#fff}
+  .crc-page .btn.solid:hover{background:var(--accent-dark);color:#fff}
+  .crc-page .smallprint{font-size:12px;line-height:1.5;color:var(--ink-soft);text-align:center;margin-top:14px}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:group {"className":"crc-page crc-booking"} -->
+<div class="wp-block-group crc-page crc-booking">
+
+<!-- wp:html -->
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="https://www.crcrepair.co.uk/">Home</a></li><li aria-current="page">Book a repair</li></ol></nav>
+<!-- /wp:html -->
+
+<!-- wp:group {"anchor":"about-booking","className":"block"} -->
+<div class="wp-block-group block" id="about-booking">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Book a phone, tablet, laptop or games console repair online</h2>
+<!-- /wp:heading -->
+
+<!-- wp:group {"className":"card lede"} -->
+<div class="wp-block-group card lede">
+<!-- wp:paragraph -->
+<p>Use the booking tool above to pick your device, choose the fault and see the price, then select one of our 10 Pocket Geek Tech Repair stores and a time that suits you. Booking reserves the parts for your exact model, so most phone screen and battery replacements are finished the same day – often within 1–3 hours – with a lifetime warranty on phone screen repairs.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>We repair iPhone, Samsung Galaxy, Google Pixel, Motorola and other Android phones, iPads and tablets, Windows laptops, MacBooks and PCs, PlayStation, Xbox and Nintendo Switch consoles, and smartwatches. Walk-ins are welcome too, and if you can't get to a store you can book a <a href="https://www.crcrepair.co.uk/collection-booking/">collection and drop-off</a> or a <a href="https://www.crcrepair.co.uk/come-to-you/">come-to-you repair</a> instead.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"devices","className":"block"} -->
+<div class="wp-block-group block" id="devices">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What you can book</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sectionintro"} -->
+<p class="sectionintro">Every repair we do in store can be booked here. Pick a device type for the repairs and models we cover.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"grid c3 devgrid"} -->
+<div class="wp-block-group grid c3 devgrid">
+<!-- wp:group {"anchor":"dev-iphone","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-iphone">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 3c-1.5.2-3 1.3-3.3 3 1.6.1 3.1-1.2 3.3-3z"/><path d="M17.5 12.4c0-2.2 1.8-3.2 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.8-.4 6.9 1.1 9.1.8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.8 3-.8 1.4 0 1.8.8 3 .7 1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.7-1-2.7-3.8z"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/iphone-repair/">iPhone repair</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cracked screens, batteries, charging ports, cameras, back glass, speakers and microphones, water damage and Face ID faults.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"models"} -->
+<p class="models"><b>Models:</b> iPhone 16 series (incl. 16e), 15, 14, 13, 12 and 11 series, iPhone XS Max and XR – and most older iPhones on request.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"dev-samsung","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-samsung">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/samsung-repair/">Samsung Galaxy repair</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Screen and back glass replacement, batteries, charging ports and cameras with genuine Samsung parts. See the <a href="https://www.crcrepair.co.uk/samsung-galaxy-s26-ultra-screen-repair/">Galaxy S26 Ultra screen repair</a> and <a href="https://www.crcrepair.co.uk/samsung-back-glass-replacement/">back glass replacement</a> pages.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"models"} -->
+<p class="models"><b>Models:</b> Galaxy S26, S25, S24 and S23 series, Z Fold and Z Flip, Galaxy A series and older Galaxy S models on request.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"dev-android","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-android">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/google-pixel-repair/">Google Pixel, Motorola &amp; other Android</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.crcrepair.co.uk/google-pixel-repair/">Pixel</a> screens, batteries and charging ports with genuine Google parts; <a href="https://www.crcrepair.co.uk/motorola-repair/">Motorola</a> Moto G, Edge and Razr repairs; OnePlus, Oppo, Sony, Nokia, Huawei and Xiaomi on request.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"models"} -->
+<p class="models"><b>Not in the list?</b> Book the nearest option and tell us the model in the notes.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"dev-tablet","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-tablet">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 17.5h.01"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/tablet-repair/">iPad &amp; tablet repair</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.crcrepair.co.uk/ipad-repair/">iPad</a>, iPad mini, Air and Pro screens, batteries, charging ports and buttons, plus Samsung Galaxy Tab and other Android tablets.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"models"} -->
+<p class="models"><b>Typical faults:</b> cracked glass, LCD lines, not charging, battery draining.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"dev-laptop","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-laptop">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/laptop-repair/">Laptop, MacBook &amp; PC repair</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Laptop screens, keyboards, batteries, hinges and charging ports; <a href="https://www.crcrepair.co.uk/macbook-repair/">MacBook</a> Air and Pro repairs; <a href="https://www.crcrepair.co.uk/computer-repair/">desktop PC</a> repairs, upgrades, virus removal and data recovery.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"models"} -->
+<p class="models"><b>Brands:</b> Apple, HP, Lenovo, Dell, Acer, Asus, Microsoft Surface and custom gaming PCs.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"dev-console","className":"card rcard"} -->
+<div class="wp-block-group card rcard" id="dev-console">
+<!-- wp:html -->
+<div class="dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/gaming-console-repair/">PlayStation, Xbox &amp; Nintendo repair</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.crcrepair.co.uk/playstation-repair/">PS5 and PS4</a> HDMI ports, overheating and disc drives; <a href="https://www.crcrepair.co.uk/xbox-repair/">Xbox Series X|S and One</a>; <a href="https://www.crcrepair.co.uk/nintendo-repair/">Nintendo Switch</a> screens, charging and Joy-Con faults; <a href="https://www.crcrepair.co.uk/ps5-controller-stick-drift/">controller stick drift</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"models"} -->
+<p class="models"><b>Also:</b> smartwatches and fitness trackers (Apple Watch, Galaxy Watch) – screens, batteries and buttons.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"faults","className":"block"} -->
+<div class="wp-block-group block" id="faults">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Common faults you can book</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sectionintro"} -->
+<p class="sectionintro">The booking tool lists the faults for your model. These are the ones we're asked for most.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<div class="chips">
+  <a href="https://www.crcrepair.co.uk/screen-repair/"><b>Cracked screen replacement</b>Phones, tablets, laptops – lifetime warranty on phone screens</a>
+  <a href="https://www.crcrepair.co.uk/battery-replacement/"><b>Battery replacement</b>Draining fast, shutting down, swollen battery</a>
+  <a href="https://www.crcrepair.co.uk/phone-repair/"><b>Charging port repair</b>Not charging, loose cable, only charges at an angle</a>
+  <a href="https://www.crcrepair.co.uk/samsung-back-glass-replacement/"><b>Back glass replacement</b>Cracked rear glass on iPhone and Galaxy</a>
+  <a href="https://www.crcrepair.co.uk/phone-repair/"><b>Camera repair</b>Blurry, black or shaking camera, cracked lens</a>
+  <a href="https://www.crcrepair.co.uk/phone-repair/"><b>Speaker &amp; microphone repair</b>No sound on calls, crackling, people can't hear you</a>
+  <a href="https://www.crcrepair.co.uk/water-damaged-phone-what-to-do/"><b>Water damage repair</b>Liquid-damage cleaning and board-level diagnostics</a>
+  <a href="https://www.crcrepair.co.uk/phone-repair/"><b>Buttons, Face ID &amp; sensors</b>Power and volume buttons, proximity sensor, Face ID</a>
+  <a href="https://www.crcrepair.co.uk/computer-repair/"><b>Software, virus removal &amp; data recovery</b>Slow devices, malware, lost files, SSD and RAM upgrades</a>
+  <a href="https://www.crcrepair.co.uk/laptop-repair/"><b>Laptop keyboard, hinge &amp; screen</b>Broken keys, cracked hinges, flickering displays</a>
+  <a href="https://www.crcrepair.co.uk/gaming-console-repair/"><b>Console HDMI, overheating &amp; drift</b>No signal, loud fan, disc not reading, stick drift</a>
+  <a href="https://www.crcrepair.co.uk/iphone-screen-repair-cost-uk-2026/"><b>Not sure what it costs?</b>Read our iPhone screen repair cost guide</a>
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"popular","className":"block"} -->
+<div class="wp-block-group block" id="popular">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Popular repairs – start your booking</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sectionintro"} -->
+<p class="sectionintro">Tap a model to open the booking tool with it already selected, then choose the fault, store and time.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<div class="grid c5 modelpills">
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-16-Pro-Max"><strong>iPhone 16 Pro Max</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-16-Pro"><strong>iPhone 16 Pro</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-16"><strong>iPhone 16</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-15-Pro-Max"><strong>iPhone 15 Pro Max</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-15-Pro"><strong>iPhone 15 Pro</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-15"><strong>iPhone 15</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-14-Pro-Max"><strong>iPhone 14 Pro Max</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-14"><strong>iPhone 14</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-13"><strong>iPhone 13</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-12"><strong>iPhone 12</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-11"><strong>iPhone 11</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Apple/iPhone-XR"><strong>iPhone XR</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Samsung/Galaxy-S25-Ultra"><strong>Galaxy S25 Ultra</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Samsung/Galaxy-S24-Ultra"><strong>Galaxy S24 Ultra</strong></a>
+  <a href="https://www.crcrepair.co.uk/book-a-repair/?selected=repairs/Samsung/Galaxy-S23-Ultra"><strong>Galaxy S23 Ultra</strong></a>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"className":"stores-after"} -->
+<p class="stores-after">Looking for a different model? Scroll up and choose it in the booking tool, or <a href="https://www.crcrepair.co.uk/contact/">ask us</a>.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"how-it-works","className":"block"} -->
+<div class="wp-block-group block" id="how-it-works">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How online booking works</h2>
+<!-- /wp:heading -->
+
+<!-- wp:group {"className":"grid c4"} -->
+<div class="wp-block-group grid c4">
+<!-- wp:group {"anchor":"how-1","className":"card step"} -->
+<div class="wp-block-group card step" id="how-1">
+<!-- wp:html -->
+<div class="step-ico"><span class="n">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Choose your device</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Pick the make and model – iPhone, Galaxy, Pixel, iPad, MacBook, PS5 and more.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"how-2","className":"card step"} -->
+<div class="wp-block-group card step" id="how-2">
+<!-- wp:html -->
+<div class="step-ico"><span class="n">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><path d="M7 7h.01"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Pick the fault and see the price</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Screen, battery, charging port, camera, water damage… The price is shown before you book.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"how-3","className":"card step"} -->
+<div class="wp-block-group card step" id="how-3">
+<!-- wp:html -->
+<div class="step-ico"><span class="n">3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l1.5-5h15L21 9M3 9v11h18V9M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M9 20v-6h6v6"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Select a store and a time</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Any of our 10 stores. We reserve the parts for your model so the repair can start when you arrive.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"how-4","className":"card step"} -->
+<div class="wp-block-group card step" id="how-4">
+<!-- wp:html -->
+<div class="step-ico"><span class="n">4</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Drop in – or let us come to you</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Bring the device at your slot and collect it later the same day for most phone repairs. Can't travel? Choose collection or come-to-you.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"stores","className":"block"} -->
+<div class="wp-block-group block" id="stores">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Book a repair at any of our 10 stores</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sectionintro"} -->
+<p class="sectionintro">Pocket Geek Tech Repair by CrC Repair® has stores in London, the South Coast, East Anglia, the Midlands and Scotland. Choose your store in the booking tool, or tap a store for its address, opening hours and local repair pages:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<div class="grid c5 storepills">
+  <a href="https://www.crcrepair.co.uk/bournemouth/" aria-label="Phone repair Bournemouth – Pocket Geek Tech Repair store page"><strong>Bournemouth</strong><span>Old Christchurch Road</span></a>
+  <a href="https://www.crcrepair.co.uk/colchester/" aria-label="Phone repair Colchester – Pocket Geek Tech Repair store page"><strong>Colchester</strong><span>Eld Lane</span></a>
+  <a href="https://www.crcrepair.co.uk/farringdon/" aria-label="Phone repair Farringdon – Pocket Geek Tech Repair store page"><strong>Farringdon</strong><span>Long Lane, London EC1</span></a>
+  <a href="https://www.crcrepair.co.uk/glasgow/" aria-label="Phone repair Glasgow – Pocket Geek Tech Repair store page"><strong>Glasgow</strong><span>St Enoch Centre</span></a>
+  <a href="https://www.crcrepair.co.uk/norwich/" aria-label="Phone repair Norwich – Pocket Geek Tech Repair store page"><strong>Norwich</strong><span>White Lion Street</span></a>
+  <a href="https://www.crcrepair.co.uk/romford/" aria-label="Phone repair Romford – Pocket Geek Tech Repair store page"><strong>Romford</strong><span>Market Place</span></a>
+  <a href="https://www.crcrepair.co.uk/stoke-on-trent/" aria-label="Phone repair Stoke-on-Trent – Pocket Geek Tech Repair store page"><strong>Stoke-on-Trent</strong><span>Tunstall Trade Park</span></a>
+  <a href="https://www.crcrepair.co.uk/surreyquays/" aria-label="Phone repair Surrey Quays – Pocket Geek Tech Repair store page"><strong>Surrey Quays</strong><span>Surrey Quays Shopping Centre</span></a>
+  <a href="https://www.crcrepair.co.uk/whetstone/" aria-label="Phone repair Whetstone – Pocket Geek Tech Repair store page"><strong>Whetstone</strong><span>High Road, London N20</span></a>
+  <a href="https://www.crcrepair.co.uk/wolverhampton/" aria-label="Phone repair Wolverhampton – Pocket Geek Tech Repair store page"><strong>Wolverhampton</strong><span>Mander Centre</span></a>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"className":"stores-after"} -->
+<p class="stores-after">Opening hours differ from store to store – see the <a href="https://www.crcrepair.co.uk/store-locator/">store locator</a>. <a href="https://www.crcrepair.co.uk/collection-booking/">Collection and drop-off</a> is available from Bournemouth, Farringdon, Surrey Quays, Romford and Whetstone.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"why-us","className":"block"} -->
+<div class="wp-block-group block" id="why-us">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Why book with CrC Repair®?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sectionintro"} -->
+<p class="sectionintro">Award-winning, insurance-approved and repairing since 2004 – more than 20,000 repairs a year for households, businesses and insurers.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"grid c4"} -->
+<div class="wp-block-group grid c4">
+<!-- wp:group {"anchor":"why-warranty","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-warranty">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="https://www.crcrepair.co.uk/lifetime-warranty/">Lifetime warranty on screen repairs</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Every phone screen we fit is covered for life; most other repairs carry a 12-month warranty.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"why-parts","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-parts">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Genuine and OEM-quality parts</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.crcrepair.co.uk/genuine-apple-parts/">Genuine Apple parts</a> for iPhone, genuine Samsung and Google parts, tested OEM-quality parts elsewhere.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"why-fast","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-fast">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Same-day repairs</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Booking reserves your parts, so most screens and batteries are done in 1–3 hours.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"why-price","className":"why-tile"} -->
+<div class="wp-block-group why-tile" id="why-price">
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Upfront prices</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The price you see is the price you pay, and we offer a <a href="https://www.crcrepair.co.uk/price-match/">price match</a> on like-for-like repairs (terms apply).</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"faq","className":"block faq"} -->
+<div class="wp-block-group block faq" id="faq">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Booking a repair: frequently asked questions</h2>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<details open id="faq-walk-in">
+  <summary><h3>Do I have to book, or can I just walk in?</h3></summary>
+  <div class="a">Walk-ins are welcome at all 10 stores. Booking online is better, though: it reserves the parts for your model, gives you a fixed time slot and usually means a faster turnaround. If you'd rather talk to someone, call <a href="tel:+443301331131">0330 133 1131</a> or your <a href="https://www.crcrepair.co.uk/store-locator/">local store</a>.</div>
+</details>
+<details id="faq-not-listed">
+  <summary><h3>My device or fault isn't in the booking list. Can you still fix it?</h3></summary>
+  <div class="a">Usually, yes. The booking tool covers the most common repairs, but our technicians work on older models, less common brands and faults that need a diagnosis first. Book the closest option and describe the problem in the notes, or <a href="https://www.crcrepair.co.uk/contact/">contact us</a> and we'll quote by phone or email.</div>
+</details>
+<details id="faq-price">
+  <summary><h3>Is the price shown online the final price?</h3></summary>
+  <div class="a">The price shown is the price for that repair on that model, with no hidden fees. If the technician finds a different or additional fault once the device is on the bench, we'll call you with a revised quote before doing any work – nothing is done without your go-ahead.</div>
+</details>
+<details id="faq-how-long">
+  <summary><h3>How long does a repair take?</h3></summary>
+  <div class="a">Most phone screen and battery replacements are finished the same day, often within 1–3 hours when the parts are in stock – and booking makes sure they are. Laptop, MacBook, console and board-level repairs can take longer; the store will give you an expected collection time when you drop the device off.</div>
+</details>
+<details id="faq-change">
+  <summary><h3>Can I change or cancel my booking?</h3></summary>
+  <div class="a">Yes. Call the store you booked with and we'll move the slot or cancel it. You can also manage quotes and repairs in our <a href="https://www.crcrepair.co.uk/repair-portal">Repair Portal</a>.</div>
+</details>
+<details id="faq-old-iphone">
+  <summary><h3>Do you still repair older iPhones and Samsungs?</h3></summary>
+  <div class="a">In most cases, yes. Screens and batteries for older iPhone and Galaxy models are still available and often cheaper than you'd expect. If your model isn't listed online, call your nearest store and we'll check parts availability for you.</div>
+</details>
+<details id="faq-parts">
+  <summary><h3>What parts do you use?</h3></summary>
+  <div class="a">Genuine and OEM-quality parts. <a href="https://www.crcrepair.co.uk/genuine-apple-parts/">Genuine Apple parts</a> are available for iPhone, Samsung repairs use genuine Samsung parts and Google Pixel repairs use genuine Google parts. Every device is tested before it's handed back.</div>
+</details>
+<details id="faq-warranty">
+  <summary><h3>What warranty do I get?</h3></summary>
+  <div class="a">A <a href="https://www.crcrepair.co.uk/lifetime-warranty/">lifetime warranty</a> on phone screen repairs and a 12-month warranty on most other repairs, covering parts and labour. Board-level soldering repairs carry a three-month warranty.</div>
+</details>
+<details id="faq-bring">
+  <summary><h3>What should I bring to my appointment?</h3></summary>
+  <div class="a">Just the device. Back up your data first if you can, remove the case, and know your passcode in case we need it to test the repair. If the device is on an insurance claim, bring the claim reference.</div>
+</details>
+<details id="faq-cant-travel">
+  <summary><h3>What if I can't get to a store?</h3></summary>
+  <div class="a">Choose our <a href="https://www.crcrepair.co.uk/collection-booking/">collection and drop-off service</a> (from £29.95, available from five stores) and we'll collect, repair and return the device, or book a <a href="https://www.crcrepair.co.uk/come-to-you/">come-to-you repair</a> at your home or workplace.</div>
+</details>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"cta","className":"cta-banner"} -->
+<div class="wp-block-group cta-banner" id="cta">
+<!-- wp:group {"className":"txt"} -->
+<div class="wp-block-group txt">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Ready to book your repair?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Choose your device and fault in the booking tool at the top of the page, pick a store and a time, and we'll have the parts ready when you arrive.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:html -->
+<div class="actions">
+  <a class="btn light" href="https://www.crcrepair.co.uk/book-a-repair/">Start your booking</a>
+  <a class="btn ghost" href="https://www.crcrepair.co.uk/store-locator/">Find a store</a>
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->

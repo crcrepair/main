@@ -1,6 +1,6 @@
 # CrC Repair® homepage v2.0 / v2.1
 
-> The collection & drop-off page (`/collection-booking/`) lives in `../collection/` — see `collection/seo-pack.md`
+> The collection & drop-off page (`/collection-booking/`) lives in `../collection/` — see `collection/seo-pack.html`
 > for its title, meta, Open Graph / X text, image alt texts and the keyword rationale. It reuses this folder's
 > `css.html` and is verified with `homepage/check_homepage.py`.
 

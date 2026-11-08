@@ -276,7 +276,7 @@ def cta_banner():
 
 HEADER = """<!-- CrC Repair® — Collection & drop-off repair service page (/collection-booking/). Built by collection/build_collection.py, 7 Nov 2026.
 Paste: Pages > Collection booking > Code editor (Ctrl+Shift+Alt+M), replace everything. Schema: collection_schema.html.
-SEO title, meta, Open Graph / X text and image alt texts: collection/seo-pack.md.
+SEO title, meta, Open Graph / X text and image alt texts: collection/seo-pack.html.
 Kept from the old page: the Elfsight booking form 05e681ab (now directly under the H1). Removed: four empty paragraphs.
 -->"""
 

@@ -159,6 +159,9 @@ html body .stk-dca275d .wp-block-blocksy-query .wp-block-cover,html body .stk-dc
  .crc-bf-banner a.crc-bf-btn{flex:1 1 auto;justify-content:center}
  html body :is(.stk-3374230,.stk-91eef04,.stk-fea32e5,.stk-21a5b5c,.stk-1048531,.stk-a2e9d2f,.stk-d70787e).stk-block:hover{transform:none}
 }
+/* phones/touch: no sticky hover lift or outline on category tiles after a tap; tighter deal badges on small screens */
+@media (hover:none){html body .stk-f5fade1 .stk-block-column.stk-block:hover{transform:none;box-shadow:0 14px 30px -18px rgba(0,0,0,.9)}}
+@media (max-width:380px){html body .stk-21a5b5c .crc-bf-off{font-size:19px;padding:5px 10px}html body :is(.stk-fea32e5,.stk-21a5b5c) .crc-bf-cap{font-size:11px;padding:4px 9px}}
 @media (prefers-reduced-motion:reduce){html body :is(.crc-bf-banner,.stk-block) *{transition:none!important}}
 
 </style>

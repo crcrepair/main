@@ -203,10 +203,12 @@ button.nav-link[aria-expanded="true"]::after { transform: translateY(2px) rotate
 .photo-slot--tall { aspect-ratio: 5 / 4; }
 @media (min-width: 900px) { .photo-slot--tall { aspect-ratio: 4 / 5; max-height: 520px; width: 100%; } }
 .photo-slot--wide { aspect-ratio: 3 / 2; }
-.photo-slot--square { aspect-ratio: 1 / 1; }
 .photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .photo-slot__label { position: relative; margin: var(--s-16); padding: 8px 12px; background: #fff; color: #000; font-size: 13px; line-height: 18px; max-width: 30ch; }
 .photo-slot__label b { display: block; }
+
+/* Supplied photos: always shown whole, never cropped */
+.photo img { width: 100%; height: auto; }
 
 /* ---------- Provision cards ---------- */
 .cards { display: grid; gap: var(--s-24); }

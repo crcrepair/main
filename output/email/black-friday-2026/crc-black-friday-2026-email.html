@@ -10,12 +10,13 @@
        CrC Repair® Black Friday 2026 email. Mailchimp: Campaigns > Design
        email > Code your own > Paste in code (or Import HTML / zip).
 
-       BEFORE SENDING: upload these three images to Mailchimp Content
+       BEFORE SENDING: upload these four images to Mailchimp Content
        Studio and replace each src="..." with the URL Mailchimp gives you:
 
          crc-email-logo.png              (header logo, 1000x300)
          product-galaxy-s24-ultra.png    (S24 Ultra deal, 520x500)
          product-galaxy-fold8.png        (Fold8 / Flip8 deal, 520x500)
+         product-belkin-earbuds.png      (free earbuds green box, 500x500)
 
        Check before sending: the Trustpilot score (4.7 as shown on the
        home page), the BF2026 voucher code and the sale end date in the
@@ -45,6 +46,9 @@
       .header-logo { text-align:center !important; padding-bottom:14px !important; }
       .header-cta { text-align:center !important; }
       .store-col { display:block !important; width:100% !important; }
+      td.repair-cell { display:block !important; width:auto !important; }
+      td.earbuds-img { display:block !important; width:auto !important; padding:20px 26px 0 26px !important; }
+      td.earbuds-txt { display:block !important; width:auto !important; padding:10px 26px 24px 26px !important; }
     }
   </style>
 </head>
@@ -52,7 +56,7 @@
 
   <!-- PREHEADER -->
   <div style="display:none; font-size:1px; color:#f4f5f7; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden;">
-    &pound;100 off Fold8 and Flip8, &pound;40 off Galaxy S24 Ultra, free Belkin earbuds and &pound;20 off repairs booked online. In store and online.
+    &pound;100 off Fold8 and Flip8, &pound;40 off Galaxy S24 Ultra, free Belkin Earbuds and &pound;20 off repairs booked online. In store and online.
   </div>
 
   <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#f4f5f7">
@@ -113,7 +117,7 @@
                 Online store deals
               </h2>
               <p style="margin:8px 0 0 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:20px; color:#6d6f72;">
-                Pre-owned, 60-point checked and backed by our 2-year warranty.
+                Pre-owned, 60-point checked and backed by our 2 Year Warranty.
               </p>
             </td>
           </tr>
@@ -153,13 +157,13 @@
                           <img src="product-galaxy-fold8.png" alt="Samsung Galaxy Z Fold8 in three colours, one open" width="200" style="display:block; margin:0 auto; max-width:200px; height:auto; border:0;" />
                         </a>
                       </td></tr>
-                      <tr><td style="padding:12px 18px 24px 18px; text-align:center;">
+                      <tr><td style="padding:12px 18px 19px 18px; text-align:center;">
                         <p style="margin:0 0 6px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:30px; line-height:34px; font-weight:900; color:#f2c14e;">&pound;100 OFF</p>
                         <p style="margin:0 0 6px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:16px; line-height:22px; font-weight:800; color:#ffffff;">Any Galaxy Fold8 or Flip8</p>
-                        <p style="margin:0 0 16px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:19px; color:#c8cacd;">Samsung&rsquo;s newest foldables.</p>
-                        <a href="https://www.crcrepair.co.uk/store/product/phones/samsung-phones/f-series/samsung-galaxy-fold8/" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#4a8ecb; color:#ffffff; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; text-decoration:none; border-radius:30px; letter-spacing:0.3px;">Shop Fold8</a>
+                        <p style="margin:0 0 11px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:19px; color:#c8cacd;">Samsung&rsquo;s newest foldables.</p>
+                        <a href="https://www.crcrepair.co.uk/store/product/phones/samsung-phones/f-series/samsung-galaxy-fold8/" target="_blank" style="display:inline-block; margin:5px 0; padding:10px 20px; background-color:#4a8ecb; color:#ffffff; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; text-decoration:none; border-radius:30px; letter-spacing:0.3px;">Shop Fold8</a>
                         &nbsp;
-                        <a href="https://www.crcrepair.co.uk/store/product/phones/samsung-phones/f-series/samsung-galaxy-z-flip8/" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#ffffff; color:#0b0f17; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; text-decoration:none; border-radius:30px; letter-spacing:0.3px;">Shop Flip8</a>
+                        <a href="https://www.crcrepair.co.uk/store/product/phones/samsung-phones/f-series/samsung-galaxy-z-flip8/" target="_blank" style="display:inline-block; margin:5px 0; padding:10px 20px; background-color:#ffffff; color:#0b0f17; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; text-decoration:none; border-radius:30px; letter-spacing:0.3px;">Shop Flip8</a>
                       </td></tr>
                     </table>
                   </td>
@@ -173,10 +177,13 @@
             <td bgcolor="#ffffff" style="padding:0 30px 36px 30px;" class="pad-mobile">
               <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#128420; border-radius:14px;">
                 <tr>
-                  <td style="padding:24px 26px; text-align:center;">
+                  <td class="earbuds-img" valign="middle" align="center" width="108" style="padding:16px 0 16px 22px;">
+                    <img src="product-belkin-earbuds.png" alt="Belkin true wireless earbuds with their charging case" width="108" style="display:block; margin:0 auto; max-width:108px; height:auto; border:0;" />
+                  </td>
+                  <td class="earbuds-txt" valign="middle" style="padding:24px 26px 24px 14px; text-align:center;">
                     <p style="margin:0 0 6px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:16px; color:#dcfbda; font-weight:800; text-transform:uppercase; letter-spacing:2px;">With every device purchase</p>
-                    <p style="margin:0 0 6px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:26px; line-height:32px; color:#ffffff; font-weight:900;">FREE Belkin earbuds</p>
-                    <p style="margin:0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:21px; color:#ffffff;">Buy any device during Black Friday, in store or online, and a pair of Belkin earbuds is on us.</p>
+                    <p style="margin:0 0 6px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:26px; line-height:32px; color:#ffffff; font-weight:900;">FREE Belkin Earbuds</p>
+                    <p style="margin:0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:21px; color:#ffffff;">Buy any device during Black Friday, in store or online, and a pair of Belkin Earbuds is on us.</p>
                   </td>
                 </tr>
               </table>
@@ -215,7 +222,7 @@
                   <td style="padding:18px 22px; background-color:#dcfbda; border-radius:0 0 14px 14px;">
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
                       <td width="110" valign="middle" style="font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:22px; line-height:26px; font-weight:900; color:#128420; white-space:nowrap;">FREE</td>
-                      <td valign="middle" style="padding-left:14px; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:20px; color:#333333;"><strong>Belkin earbuds</strong> with every device purchase<br /><span style="color:#6d6f72; font-size:13px;">Ask in store when you buy.</span></td>
+                      <td valign="middle" style="padding-left:14px; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:20px; color:#333333;"><strong>Belkin Earbuds</strong> with every device purchase<br /><span style="color:#6d6f72; font-size:13px;">Ask in store when you buy.</span></td>
                     </tr></table>
                   </td>
                 </tr>
@@ -273,10 +280,10 @@
             <td bgcolor="#ffffff" style="padding:20px 30px 36px 30px;" class="pad-mobile">
               <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#0b0f17; border-radius:14px;">
                 <tr>
-                  <td class="stack-column" valign="middle" align="left" width="42%" style="padding:24px 10px 24px 26px;">
+                  <td class="repair-cell" valign="middle" align="left" width="42%" style="padding:24px 10px 24px 26px;">
                     <p style="margin:0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:24px; line-height:26px; font-weight:900; color:#ffffff; text-transform:uppercase; letter-spacing:-0.3px;">Black Friday<br /><span style="color:#f2c14e;">Deal</span></p>
                   </td>
-                  <td class="stack-column" valign="middle" align="right" width="58%" style="padding:24px 26px 24px 10px;">
+                  <td class="repair-cell" valign="middle" align="right" width="58%" style="padding:24px 26px 24px 10px;">
                     <p style="margin:0 0 4px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:19px; line-height:24px; font-weight:900;"><a href="https://www.crcrepair.co.uk/book-a-repair/" target="_blank" style="color:#f2c14e; text-decoration:none;"><span style="white-space:nowrap;">&pound;20 OFF</span> <span style="font-weight:600;">any</span> REPAIR BOOKED ONLINE</a></p>
                     <p style="margin:0 0 14px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:18px; font-weight:700; color:#f2c14e;">Use BF2026 voucher at the checkout.</p>
                     <a href="https://www.crcrepair.co.uk/book-a-repair/" target="_blank" style="display:inline-block; padding:10px 22px; background-color:#ffffff; color:#0b0f17; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:800; text-decoration:none; border-radius:30px;">Book a repair</a>
@@ -291,12 +298,12 @@
             <td bgcolor="#ffffff" style="padding:0 30px 36px 30px;" class="pad-mobile">
               <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#fdf3d6; border:1px solid #f2c14e; border-radius:14px;">
                 <tr>
-                  <td style="padding:24px 26px; text-align:center;">
+                  <td style="padding:24px 26px 19px 26px; text-align:center;">
                     <p style="margin:0 0 6px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:20px; line-height:26px; color:#0b0f17; font-weight:900;">Do you have any questions?</p>
-                    <p style="margin:0 0 16px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:22px; color:#333333;">Email us and we&rsquo;ll get back to you. Or visit our website for more information, or pop into one of our stores.</p>
-                    <a href="mailto:support@crcrepair.co.uk?subject=Black%20Friday%20deals" style="display:inline-block; padding:11px 24px; background-color:#0b0f17; color:#f2c14e; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:800; text-decoration:none; border-radius:30px;">support@crcrepair.co.uk</a>
+                    <p style="margin:0 0 11px 0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:22px; color:#333333;">Email us and we&rsquo;ll get back to you. Or visit our website for more information, or pop into one of our stores.</p>
+                    <a href="mailto:support@crcrepair.co.uk?subject=Black%20Friday%20deals" style="display:inline-block; margin:5px 0; padding:11px 24px; background-color:#0b0f17; color:#f2c14e; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:800; text-decoration:none; border-radius:30px;">support@crcrepair.co.uk</a>
                     &nbsp;
-                    <a href="https://www.crcrepair.co.uk" target="_blank" style="display:inline-block; padding:11px 24px; background-color:#4a8ecb; color:#ffffff; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:800; text-decoration:none; border-radius:30px;">Visit our website</a>
+                    <a href="https://www.crcrepair.co.uk" target="_blank" style="display:inline-block; margin:5px 0; padding:11px 24px; background-color:#4a8ecb; color:#ffffff; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:800; text-decoration:none; border-radius:30px;">Visit our website</a>
                   </td>
                 </tr>
               </table>
@@ -330,7 +337,7 @@
           <tr>
             <td bgcolor="#ffffff" style="padding:22px 30px;" class="pad-mobile">
               <p style="margin:0; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:17px; color:#6d6f72; text-align:center;">
-                Black Friday offers run while stocks last and can&rsquo;t be combined with other offers. &pound;40 off applies to any pre-owned Samsung Galaxy S24 Ultra, any grade and storage size. &pound;100 off applies to any Galaxy Fold8 or Flip8. Free Belkin earbuds with every device purchased during the offer period, subject to availability. &pound;20 off repairs booked online with voucher BF2026. Devices sold come with our 2-year warranty, subject to our <a href="https://www.crcrepair.co.uk/terms/" style="color:#4a8ecb; text-decoration:underline;">terms and conditions</a>.
+                Black Friday offers run while stocks last and can&rsquo;t be combined with other offers. &pound;40 off applies to any pre-owned Samsung Galaxy S24 Ultra, any grade and storage size. &pound;100 off applies to any Galaxy Fold8 or Flip8. Free Belkin Earbuds with every device purchased during the offer period, subject to availability. &pound;20 off repairs booked online with voucher BF2026. Devices sold come with our 2 Year Warranty, subject to our <a href="https://www.crcrepair.co.uk/terms/" style="color:#4a8ecb; text-decoration:underline;">terms and conditions</a>.
               </p>
             </td>
           </tr>

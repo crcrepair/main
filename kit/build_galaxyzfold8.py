@@ -13,7 +13,7 @@ URL = "https://www.crcrepair.co.uk/store/product/phones/samsung-phones/f-series/
 ACCESSORIES = "https://www.crcrepair.co.uk/store/product-category/accessories/"
 BOOKING_SELECTED = "repairs/Samsung/Galaxy-Z-Fold8"   # ❓ Samsung pattern still to confirm; the URL slug drops the "Z"
 TAGLINE = "The wider Fold: a 7.6-inch tablet that fits in your pocket."   # ❓ written by Claude: no old tagline supplied
-BLACK_FRIDAY = False
+BLACK_FRIDAY = True
 
 META_TITLE = "Buy Samsung Galaxy Z Fold8 | 7.6-inch Fold | CrC Repair®"
 META_DESC = ("Buy a Samsung Galaxy Z Fold8 with a wider 7.6-inch folding screen, 5.5-inch cover screen a"
